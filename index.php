@@ -1,4 +1,6 @@
-<?php
+<?php session_start();
+require_once("essentials/common.php");
+
 $getpage = isset($_GET['page']) ? $_GET['page'] : "index";
 
 $pageFile = "pages/".$getpage.".php";

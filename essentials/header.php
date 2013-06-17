@@ -17,8 +17,12 @@
 	<header>
 		<section id="top">
 			<div class="content">
+				<?PHP if(!isset($_SESSION['user_id'])): ?>
 				<a class="right button" href="?page=login">Inloggen</a>
 				<a class="right button" href="?page=register">Registreren</a>
+				<?PHP else: ?>
+					Welkom, <a href=""><?PHP echo $_SESSION['user_name']." ".$_SESSION['user_lastname'] ?></a>
+				<?PHP endif; ?>
 			</div>
 		</section>
 		<section id="top-overlay"></section>
