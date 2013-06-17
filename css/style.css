@@ -219,6 +219,7 @@ header {
 }
 #main-content-right {
 	background:url('../img/diagonal-pattern.png');
+	min-height: 230px;
 	width:760px;
 	padding:20px;
 	margin-top: 15px;
@@ -319,7 +320,7 @@ input {
 	height:20px;
 	color: #777;
 }
-#datepicker{
+.datepicker{
 	width: 89px;
 	background-image:url('../img/datepicker_icon.png');
 	background-repeat:no-repeat;

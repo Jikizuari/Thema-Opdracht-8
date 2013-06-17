@@ -53,8 +53,8 @@
 <script type="text/javascript">
 
 $(function() {
-	$( "#datepicker" ).datepicker({
-		dateFormat : 		'dd-mm-yy',
+	$( ".datepicker" ).datepicker({
+		dateFormat : 		'yy-mm-dd',
 		showAnim: 			'fade',
 		minDate: 			new Date(),
 		changeYear: 		false,

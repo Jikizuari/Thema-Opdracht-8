@@ -1,11 +1,11 @@
 <div class="right" id="main-content-sidebar">
 		<h1><strong>Zoek</strong> een vakantie</h1>
-		<form>
+		<form action="index.php?page=vakantieZoeken" method="post">
 			<table>
 				<tr>
 					<td>
 						<label>Vertrekdatum</label>	
-						<input id="datepicker" type="text" />
+						<input class="datepicker" type="text" />
 					</td>
 					<td>
 						<label>Bestemming</label> 
@@ -26,7 +26,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td></td><td><a href="" class="button" >Zoeken</a></td>
+					<td></td><td><input type="submit" class="button" value="Zoeken"></td>
 				</tr>
 			</table>
 		</form>
