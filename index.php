@@ -10,6 +10,6 @@ if(!is_file($pageFile))
 
 require_once("essentials/header.php");
 require_once($pageFile);
-require_once("essentials/sidebar.php");
+// require_once("essentials/sidebar.php");
 require_once("essentials/footer.php");
 ?>

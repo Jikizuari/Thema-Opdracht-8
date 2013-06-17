@@ -85,4 +85,7 @@
 			<button class="right button" type="submit" name="submit" >Submit</button>
 		</form>
 	</div>
+	<?PHP require_once("essentials/sidebar.php"); ?>
+</div>
+<div class="clear"></div>
 	

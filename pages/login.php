@@ -41,4 +41,7 @@
 			<button class="right button" type="submit" name="submit" >Submit</button>
 		</form>
 	</div>
+
+	</div>
+<div class="clear"></div>
 	

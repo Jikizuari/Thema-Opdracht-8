@@ -40,6 +40,6 @@
 			<li><a href="#"><img src="img/thumbs/thumb6.png" alt="" /></a></li>
 		</ul>
 	</div>
-
+<?PHP require_once("essentials/sidebar.php"); ?>
 </div>
 <div class="clear"></div>

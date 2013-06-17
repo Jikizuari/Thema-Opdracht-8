@@ -18,4 +18,6 @@
 
 		<p>Reguli reiciendam; Qui ita affectus, beatum esse numquam probabis; Videamus animi partes, quarum est conspectus illustrior; De quibus cupio scire quid sentias. </p>
 	</div>
-	
+	<?PHP require_once("essentials/sidebar.php"); ?>
+</div>
+<div class="clear"></div>
