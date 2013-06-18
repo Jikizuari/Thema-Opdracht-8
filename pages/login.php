@@ -19,6 +19,7 @@
 				$_SESSION['user_id'] = $result->UserID;
 				$_SESSION['user_name'] = $result->Name;
 				$_SESSION['user_lastname'] = $result->LastName;
+				$_SESSION['user_email'] = $username;
 
 				redirect("vakantie");
 			} catch(Exception $e) {

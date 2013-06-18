@@ -12,7 +12,7 @@ elseif(isset($_SESSION['stap2']) && $_SESSION['stap2'])
 elseif(isset($_SESSION['stap1']) && $_SESSION['stap1'])
 	redirect("vakantieZoeken");
 else
-	redirect("vlucht");
+	redirect("vluchtZoeken");
 ?>
 </div>
 <div class="clear"></div>

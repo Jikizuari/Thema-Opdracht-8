@@ -62,7 +62,7 @@
 		<div class="left" id="main-content-left">
 			<nav  id="sidemenu">
 				<ul>
-					<a href="?page=vluchtZoeken"><li><img src="img/icons/plane.png" alt="" />Reizen</li></a>
+					<a href="?page=vakantie"><li><img src="img/icons/plane.png" alt="" />Reizen</li></a>
 					<a href="#"><li><img src="img/icons/suitcase.png" alt="" />Aanbiedingen</li></a>
 					<a href="#"><li><img src="img/icons/boat.png" alt="" />Over ons</li></a>
 					<a href="#"><li><img src="img/icons/signpost.png" alt="" />Contact</li></a>

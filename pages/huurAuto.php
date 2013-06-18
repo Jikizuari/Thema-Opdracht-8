@@ -1,11 +1,11 @@
 <div class="right" id="main-content-right">
+	<pre>
 <?PHP
 if(isset($_GET['roomType']) && isset($_GET['numberOfRooms'])) {
 	$_SESSION['hotel_roomType'] = $_GET['roomType'];
 	$_SESSION['hotel_numberOfRooms'] = $_GET['numberOfRooms'];
 	$_SESSION['stap3'] = true;
 }
-//http://iis.dkmedia.nl/TO8.VervoerService.svc?wsdl
 if(isset($_SESSION['stap3']) && $_SESSION['stap3']) {
 	$client	= new SoapClient("http://iis.dkmedia.nl/TO8.VervoerService.svc?wsdl");
 	$req 					= new stdClass();
