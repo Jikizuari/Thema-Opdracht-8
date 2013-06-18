@@ -402,10 +402,10 @@ blockquote:before {
 	vertical-align:-.4em;
 }
 
-td {
+#tableStyle td {
 	width:250px;
 }
-td span {
+#tableStyle td span {
 	display:inline-block;
 	width:100px;
 	font-weight: bold;
