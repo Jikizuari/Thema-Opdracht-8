@@ -1,6 +1,6 @@
 <div class="right" id="main-content-right">
 	<div class="left" id="main-content-content">
-		<h1><strong>Create</strong> a new account</h1>
+		<h1><strong>Maak</strong> een nieuw account aan</h1>
 
 		
 		<?php
