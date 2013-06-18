@@ -22,8 +22,10 @@
 
 				redirect("vakantie");
 			} catch(Exception $e) {
-				echo '<div class="errormessage" id="notification">'.$e->detail->fault->message.'</div>';
-				//$e->detail->fault->message.
+				require_once('essentials/usererror.php');
+				$u = new userError();
+				$errorMessage = $u->getErrorMessage($e->detail->fault->errorCode);
+				echo '<div class="errormessage" id="notification">'.$errorMessage.'</div>';
 			}
 		}
 		?>
