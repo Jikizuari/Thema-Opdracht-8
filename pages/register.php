@@ -42,47 +42,47 @@
 		<form id="registerForm" name="registerForm" action="" method="post">
 
 
-				<label class="label">Name</label>
-					<span>Your first name</span>
+				<label class="label">Naam</label>
+					<span>Uw voornaam</span>
 				<input type="text" id="name" name="name" />
 
-				<label class="label">Last name</label>
-					<span>Your last name</span>
+				<label class="label">Achternaam</label>
+					<span>Uw achternaam</span>
 				<input type="text" id="lname" name="lname" />
 
-				<label class="label">Street</label>
-					<span>The street you are living in</span>
+				<label class="label">Adres</label>
+					<span>Uw adres</span>
 				<input type="text" id="street" name="street" />
 
-				<label class="label">Housenumber</label>
-					<span>Your housenumber</span>
+				<label class="label">Huisnummer</label>
+					<span>Uw huisnummer</span>
 				<input type="text" id="housenmb" name="housenmb" />
 
-				<label class="label">Zipcode</label>
-					<span>(ex. 1111AA)</span>
+				<label class="label">Postcode</label>
+					<span>(bijv. 1111AA)</span>
 				<input type="text" id="zip" name="zip" />
 
-				<label class="label">City</label>
-					<span>Th city you are currently living in</span>
+				<label class="label">Stad</label>
+					<span>De stad waar u in woont</span>
 				<input type="text" id="addr" name="addr" />
 
-				<label class="label">Date of Birth</label>
-					<span>(ex. 1993-09-22)</span>
+				<label class="label">Geboortedatum</label>
+					<span>(bijv. 1993-09-22)</span>
 				<input type="text" id="birth" name="birth" />
 
-				<label class="label">Phone</label>
-					<span>Your phone number</span>
+				<label class="label">Telefoonnummer</label>
+					<span>Uw telefoonnummer</span>
 				<input type="text" id="phone" name="phone" />
 
 				<label class="label">E-mail</label>
-					<span>This will be your login name</span>
+					<span>Dit wordt uw inlognaam</span>
 				<input type="text" id="mail" name="mail" />
 
-				<label class="label">Password</label>
-					<span>Your desired password</span>
+				<label class="label">Wachtwoord</label>
+					<span>Kies een wachtwoord</span>
 				<input type="password" id="pass" name="pass" />
 
-			<button class="right button" type="submit" name="submit" >Submit</button>
+			<button class="right button" type="submit" name="submit" >Registreer</button>
 		</form>
 	</div>
 	<?PHP require_once("essentials/sidebar.php"); ?>

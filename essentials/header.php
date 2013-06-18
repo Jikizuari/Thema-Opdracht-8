@@ -21,7 +21,7 @@
 				<a class="right button" href="?page=login">Inloggen</a>
 				<a class="right button" href="?page=register">Registreren</a>
 				<?PHP else: ?>
-					Welkom, <a href=""><?PHP echo $_SESSION['user_name']." ".$_SESSION['user_lastname'] ?></a>
+					<section id="user-info" class="right"><span class="user-welcome">Welkom, <a href="?page=myaccount"><?PHP echo $_SESSION['user_name']." ".$_SESSION['user_lastname'] ?></a></span> <a class="right button" href="?page=logout">Uitloggen</a></section>
 				<?PHP endif; ?>
 			</div>
 		</section>
