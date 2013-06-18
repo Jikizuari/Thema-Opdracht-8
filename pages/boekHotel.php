@@ -1,5 +1,4 @@
 <div class="right" id="main-content-right">
-<<<<<<< HEAD
 <?php
 	$rooms = array();
 	$hotel = null;
@@ -99,7 +98,5 @@
 	</tr>
 <?PHP endforeach; ?>
 </table>
-=======
->>>>>>> ddf7d6aea21daf43233ebdab8d02cb814eb90b52
 </div>
 <div class="clear"></div>
