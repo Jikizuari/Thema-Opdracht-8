@@ -7,10 +7,14 @@ $flights = array();
 if(isset($_POST['submit'])){
 	$_SESSION['vertrekhaven'] 		= $_POST['vertrekhaven'];
 	$_SESSION['bestemming'] 		= $_POST['bestemming'];
-	$_SESSION['vertrekDatum'] 		= $_POST['vertrekDatum'];
-	$_SESSION['aankomstDatum'] 		= $_POST['aankomstDatum'];
+	$_SESSION['vanDatum'] 			= $_POST['vertrekDatum'];
+	$_SESSION['totDatum'] 			= $_POST['aankomstDatum'];
 	$_SESSION['aantalPersonen']		= $_POST['aantalPersonen'];
 	$_SESSION['formValid']			= true;
+
+	if($_SESSION['vertrekhaven'] == "") {
+		echo '<div class="errormessage" id="notification">Vul een vertrekhaven in.</div>';
+	}
 }
 if(isset($_SESSION['formValid']) && $_SESSION['formValid']) {
 	$client	= new SoapClient("http://tomcat.dkmedia.nl/flightservice/flightservice?wsdl");
