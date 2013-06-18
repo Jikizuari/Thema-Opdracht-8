@@ -34,8 +34,10 @@
 				$result	= $client->UserRegistration(array('Name'=>$name, 'Lastname'=>$lname, 'Street'=>$street, 'HouseNumber'=>$housenmb, 'ZipCode'=>$zipcode, 'City'=>$addr, 'DateOfBirth'=>$birth, 'PhoneNumber'=>$phone, 'E-mail'=>$email, 'Password'=>$pass));
 				redirect('login');
 			} catch(Exception $e) {
-				echo '<div class="errormessage" id="notification">'.$e->getMessage().'</div>';
-				//$e->detail->fault->message.
+				require_once('essentials/usererror.php');
+				$u = new userError();
+				$errorMessage = $u->getErrorMessage($e->detail->fault->errorCode);
+				echo '<div class="errormessage" id="notification">'.$errorMessage.'</div>';
 			}
 		}
 		?>
