@@ -30,15 +30,15 @@
 		<form id="registerForm" name="loginForm" action="" method="post">
 
 
-				<label class="label">Username</label>
-					<span>Your e-mail address</span>
+				<label class="label">E-mail</label>
+					<span>Uw e-mail adres</span>
 				<input type="text" id="username" name="username" />
 
-				<label class="label">Password</label>
-					<span>Your personal password</span>
+				<label class="label">Wachtwoord</label>
+					<span>Uw wachtwoord</span>
 				<input type="password" id="password" name="password" />
-				Don't have an account yet? Click <a href="?page=register">here</a> to register.
-			<button class="right button" type="submit" name="submit" >Submit</button>
+				Heeft u nog geen account? Klik <a href="?page=register">hier</a> om een gratis account aan te maken.
+			<button class="right button" type="submit" name="submit" >Inloggen</button>
 		</form>
 	</div>
 
