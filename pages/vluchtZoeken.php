@@ -24,7 +24,6 @@ if(isset($_SESSION['formValid']) && $_SESSION['formValid']) {
 	try {
 		$result	= $client->searchFlight($req);
 		//var_dump($result);
-		$_SESSION['stap1']			= true;
 		if(is_array($result->return)) {
 			foreach ($result->return as $vlucht) {
 				$flights[] = $vlucht;

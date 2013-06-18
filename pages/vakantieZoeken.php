@@ -2,17 +2,11 @@
 <?PHP //hotels ophalen 
 $hotels = array();
 
-	if(isset($_POST['zoekSubmit'])){
-		$_SESSION['vanDatum'] 		= $_POST['vanDatum'];
-		$_SESSION['totDatum'] 		= $_POST['totDatum'];
-		$_SESSION['bestemming'] 	= $_POST['bestemming'];
-		$_SESSION['aantalPersonen'] = $_POST['aantalPersonen'];
-		$_SESSION['formValid']		= false;
-
-		//validate
-		$_SESSION['formValid']		= true;
+if(isset($_GET['vlucht'])){
+	$_SESSION['vlucht_id'] = $_GET['vlucht']; 
+	$_SESSION['stap1']		= true;
 }
-if(isset($_SESSION['formValid']) && $_SESSION['formValid']) {
+if(isset($_SESSION['stap1']) && $_SESSION['stap1']) {
 	$client	= new SoapClient("http://tomcat.dkmedia.nl/hotelservice/hotelservice?wsdl");
 
 		$req 					= new stdClass();
@@ -36,23 +30,6 @@ if(isset($_SESSION['formValid']) && $_SESSION['formValid']) {
 		}
 }
 ?>
-
-	<form id="vakantieForm" method="post">
-		<label>Van </label>	
-		<input name="vanDatum" class="datepicker" type="text" value="<?PHP echo $_SESSION['vanDatum'] == ''? '' : $_SESSION['vanDatum'] ?>"/>
-		
-		<label>Tot </label>
-		<input name="totDatum" class="datepicker" type="text" value="<?PHP echo $_SESSION['totDatum'] == ''? '' : $_SESSION['totDatum'] ?>"/>
-
-		<label>Bestemming </label> 
-		<input name="bestemming" type="text" value="<?PHP echo $_SESSION['bestemming'] == ''? '' : $_SESSION['bestemming'] ?>"/>
-
-		<label>Aantal personen </label> 
-		<input name="aantalPersonen" width="4" type="text" value="<?PHP echo $_SESSION['aantalPersonen'] == ''? '' : $_SESSION['aantalPersonen'] ?>"/>
-		
-		<input name="zoekSubmit" type="submit" name="vakantieZoeken" value="Zoeken">
-	</form>
-
 	<table>
 		<?PHP foreach ($hotels as $hotel): ?>
 			<tr>
