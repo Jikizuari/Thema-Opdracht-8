@@ -20,7 +20,7 @@
 				echo '<div class="errormessage" id="notification">'.$errorMessage.'</div>';
 			}
 		?>
-		<table>
+		<table id="tableStyle">
 			<tr><td><span>Klantnummer</span> <?php echo $output->UserID ?></td><td><span>Woonplaats</span> <?php echo $output->City ?></td></tr>
 			<tr><td><span>Voornaam</span> <?php echo $output->Name ?></td><td><span>Geboortedatum</span> <?php echo $DateOfBirth ?></td></tr>
 			<tr><td><span>Achternaam</span> <?php echo $output->LastName ?></td><td><span>Telnummer</span> <?php echo $output->PhoneNumber ?></td></tr>
