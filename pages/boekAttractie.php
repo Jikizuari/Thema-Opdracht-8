@@ -26,10 +26,10 @@ if(isset($_SESSION['stap3']) && $_SESSION['stap3']) {
 	$req->searchattractions->holiday_start_dateField		= $_SESSION['vanDatum'];
 	$req->searchattractions->placeField	= $_SESSION['bestemming'];
 	$req->searchattractions->reachField	= 50;
-
 	try {
 		$result	= $client->searchAttraction($req);
 		var_dump($result);
+
 	} catch(Exception $e) {
 		echo "<pre>";
 		echo $e;

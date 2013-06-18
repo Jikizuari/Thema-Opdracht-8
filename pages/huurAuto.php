@@ -2,7 +2,7 @@
 <?PHP
 $autos = array();
 
-if(isset($_GET['roomType']) && isset($_GET['numberOfRooms'])) {
+if(isset($_SESSION['stap2']) && $_SESSION['stap2'] && isset($_GET['roomType']) && isset($_GET['numberOfRooms'])) {
 	$_SESSION['hotel_roomType'] = $_GET['roomType'];
 	$_SESSION['hotel_numberOfRooms'] = $_GET['numberOfRooms'];
 	$_SESSION['stap3'] = true;
@@ -39,6 +39,11 @@ if(isset($_SESSION['stap3']) && $_SESSION['stap3']) {
 <h1>Auto Huren</h1>
 <table>
 <?PHP foreach ($autos as $auto): ?>
+	<tr>
+		<td rowspan="5">
+			<img src="<?PHP echo $auto->PhotoURL ?>" style="max-width: 150px; max-height: 150px; padding: 5px;">
+		</td>
+	</tr>
 	<tr>
 		<td collspan="2"><h3><?PHP echo $auto->Name ?></h3></td>
 	</tr>
