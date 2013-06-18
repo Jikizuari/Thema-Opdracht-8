@@ -402,6 +402,15 @@ blockquote:before {
 	vertical-align:-.4em;
 }
 
+td {
+	width:250px;
+}
+td span {
+	display:inline-block;
+	width:100px;
+	font-weight: bold;
+}
+
 .sbHolder{background-color:#fff;border:solid 1px #c3c3c3;font-size:12px;font-weight:normal;height:20px;position:relative;width:114px;}
 .sbSelector{display:block;height:16px;left:0;outline:none;overflow:hidden;position:absolute;text-indent:5px;top:2px;width:90px;border-right:1px solid #c3c3c3;}
 .sbSelector:link,.sbSelector:visited,.sbSelector:hover{color:#777;outline:none;text-decoration:none;}
@@ -421,26 +430,3 @@ blockquote:before {
 .sbOptions .sbSub{padding-left:17px;}
 
 #ui-datepicker-div { z-index: 999;}
-
-#user-info {
-	color:#fff;
-	position: relative;
-}
-#user-info a {
-	color:#fff;
-	-webkit-transition:color .2s ease-in-out;
-	-moz-transition:color .2s ease-in-out;
-	-ms-transition:color .2s ease-in-out;
-	-o-transition:color .2s ease-in-out;
-	transition:color .2s ease-in-out;
-}
-#user-info a:hover { color:rgb(191, 145, 105); }
-#user-info a:visited { color:#fff; }
-.user-welcome { 
-	position: absolute;
-	margin: 13px 0 0 14px;
-	padding: 3px 0;
-	min-width:300px;
-	right:120px;
-	text-align: right;
-}
