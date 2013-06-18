@@ -2,10 +2,6 @@
 	<div class="left" id="main-content-content">
 		<h1><strong>Mijn </strong>account</h1>
 		<?php
-
-			ini_set('display_errors',1); 
-			error_reporting(E_ALL);
-
 			$client	= new SoapClient("http://tomcat.dkmedia.nl/tho8/userservice?wsdl");
 			$output	= "";
 

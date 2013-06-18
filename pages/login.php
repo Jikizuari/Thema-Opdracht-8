@@ -10,10 +10,6 @@
 
 			$client						= new SoapClient("http://tomcat.dkmedia.nl/tho8/userservice?wsdl");
 
-			$addRequest 				= new stdClass();
-			$addRequest->{'E-mail'}		= $username;
-			$addRequest->Password 		= $password;
-
 			try {
 				$result	= $client->UserLogin(array('E-mail'=>$username, 'Password'=>$password));
 				$_SESSION['user_id'] = $result->UserID;

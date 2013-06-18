@@ -18,18 +18,6 @@
 
 			$client						= new SoapClient("http://tomcat.dkmedia.nl/tho8/userservice?wsdl");
 
-			$addRequest 				= new stdClass();
-			$addRequest->Name 			= $name;
-			$addRequest->Lastname		= $lname;
-			$addRequest->Street 		= $street;
-			$addRequest->HouseNumber 	= $housenmb;
-			$addRequest->ZipCode 		= $zipcode;
-			$addRequest->Address 		= $addr;
-			$addRequest->DateOfBirth 	= $birth;
-			$addRequest->PhoneNumber	= $phone;
-			$addRequest->{'E-mail'}		= $email;
-			$addRequest->Password 		= $pass;
-
 			try {
 				$result	= $client->UserRegistration(array('Name'=>$name, 'Lastname'=>$lname, 'Street'=>$street, 'HouseNumber'=>$housenmb, 'ZipCode'=>$zipcode, 'City'=>$addr, 'DateOfBirth'=>$birth, 'PhoneNumber'=>$phone, 'E-mail'=>$email, 'Password'=>$pass));
 				redirect('login');
