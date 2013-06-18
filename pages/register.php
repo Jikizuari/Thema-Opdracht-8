@@ -64,8 +64,8 @@
 					<span>(bijv. 1111AA)</span>
 				<input type="text" id="zip" name="zip" />
 
-				<label class="label">Stad</label>
-					<span>De stad waar u in woont</span>
+				<label class="label">Woonplaats</label>
+					<span>Uw huidige woonplaats</span>
 				<input type="text" id="addr" name="addr" />
 
 				<label class="label">Geboortedatum</label>

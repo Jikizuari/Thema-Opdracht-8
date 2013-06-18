@@ -48,7 +48,7 @@
 					<div class="caption">
 						<p><h1>Op vakantie?</h1>
 							Stel nu uw eigen reis binnen 5 minuten samen!<br/>
-							<a class="sliderbutton" href="#">Begin hier &raquo;</a>
+							<a class="sliderbutton" href="?page=vakantie">Begin hier &raquo;</a>
 						</p>
 					</div>
 				</div>	
