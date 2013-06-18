@@ -2,7 +2,7 @@
 	<div class="left" id="main-content-content">
 		<h1><strong>Stel</strong> uw vakantie samen - <strong>Vlucht boeken</strong></h1>
 <?PHP
-$hotels = array();
+$flights = array();
 
 if(isset($_POST['submit'])){
 	$_SESSION['vertrekhaven'] 		= $_POST['vertrekhaven'];
@@ -10,9 +10,6 @@ if(isset($_POST['submit'])){
 	$_SESSION['vertrekDatum'] 		= $_POST['vertrekDatum'];
 	$_SESSION['aankomstDatum'] 		= $_POST['aankomstDatum'];
 	$_SESSION['aantalPersonen']		= $_POST['aantalPersonen'];
-	$_SESSION['formValid']			= false;
-
-		//validate
 	$_SESSION['formValid']			= true;
 }
 if(isset($_SESSION['formValid']) && $_SESSION['formValid']) {
@@ -26,7 +23,8 @@ if(isset($_SESSION['formValid']) && $_SESSION['formValid']) {
 
 	try {
 		$result	= $client->searchFlight($req);
-		var_dump($result);
+		//var_dump($result);
+		$_SESSION['stap1']			= true;
 		if(is_array($result->return)) {
 			foreach ($result->return as $vlucht) {
 				$flights[] = $vlucht;
@@ -71,14 +69,25 @@ if(isset($_SESSION['formValid']) && $_SESSION['formValid']) {
 	<table>
 		<?PHP foreach ($flights as $flight): ?>
 			<tr>
-				<td width="230px"><strong>Vluchtcode:</strong> <?PHP echo $flight->flightCode ?></td>
-				<td><strong>Maatschappij:</strong> <?PHP echo $flight->airline ?></td>
+				<td width="230px"><span>Vluchtcode:</span> <?PHP echo $flight->flightCode ?></td>
+				<td><span>Maatschappij:</span> <?PHP echo $flight->airline ?></td>
 			</tr>
 			<tr>
-				<td><strong>Vertrekhaven:</strong> <?PHP echo $flight->arrivalAirport->name ?></td>
-				<td><strong>Bestemming:</strong> <?PHP echo $flight->departureAirport->name ?></td>
+				<td><span>Vertrekhaven:</span> <?PHP echo $flight->arrivalAirport->name ?></td>
+				<td><span>Bestemming:</span> <?PHP echo $flight->departureAirport->name ?></td>
 			</tr>
-
+			<tr>
+				<td><span>Vliegtuigtype:</span> <?PHP echo $flight->airplane->type ?></td>
+				<td><span>Capaciteit:</span> <?PHP echo $flight->airplane->capacity ?> personen</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td><a class="right button" href="?page=vakantieZoeken&vlucht=<?PHP echo $flight->flightId; ?>">Kiezen</a></td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
 		<?PHP endforeach; ?>
 	</table>
 </p>
