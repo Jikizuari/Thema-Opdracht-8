@@ -25,9 +25,9 @@
 					$result	= $client->UpdateUser(array('UserID'=>$_SESSION['user_id'], 'Name'=>$name, 'Lastname'=>$lname, 'Street'=>$street, 'HouseNumber'=>$housenmb, 'ZipCode'=>$zipcode, 'City'=>$addr, 'DateOfBirth'=>$birth, 'PhoneNumber'=>$phone, 'E-mail'=>$email));
 				}
 				if($result->ActionProcessed){
-					redirect('myaccount');
 					$_SESSION['user_name'] = $_POST['name'];
 					$_SESSION['user_lastname'] = $_POST['lname'];
+					redirect('myaccount');
 				} else {
 					echo '<div class="errormessage" id="notification">Er is wat mis gegaan.</div>';
 				}
