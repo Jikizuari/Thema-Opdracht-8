@@ -39,16 +39,16 @@ if(isset($_SESSION['formValid']) && $_SESSION['formValid']) {
 
 	<form id="vakantieForm" method="post">
 		<label>Van </label>	
-		<input name="vanDatum" class="datepicker" type="text" value="<?PHP echo $_SESSION['vanDatum'] == ''? '' : $_SESSION['vanDatum'] ?>"/>
+		<input name="vanDatum" class="datepicker" type="text" value="<?PHP echo !isset($_SESSION['vanDatum']) ? '' : $_SESSION['vanDatum'] ?>"/>
 		
 		<label>Tot </label>
-		<input name="totDatum" class="datepicker" type="text" value="<?PHP echo $_SESSION['totDatum'] == ''? '' : $_SESSION['totDatum'] ?>"/>
+		<input name="totDatum" class="datepicker" type="text" value="<?PHP echo !isset($_SESSION['totDatum'])? '' : $_SESSION['totDatum'] ?>"/>
 
 		<label>Bestemming </label> 
-		<input name="bestemming" type="text" value="<?PHP echo $_SESSION['bestemming'] == ''? '' : $_SESSION['bestemming'] ?>"/>
+		<input name="bestemming" type="text" value="<?PHP echo !isset($_SESSION['bestemming'])? '' : $_SESSION['bestemming'] ?>"/>
 
 		<label>Aantal personen </label> 
-		<input name="aantalPersonen" width="4" type="text" value="<?PHP echo $_SESSION['aantalPersonen'] == ''? '' : $_SESSION['aantalPersonen'] ?>"/>
+		<input name="aantalPersonen" width="4" type="text" value="<?PHP echo !isset($_SESSION['aantalPersonen'])? '' : $_SESSION['aantalPersonen'] ?>"/>
 		
 		<input name="zoekSubmit" type="submit" name="vakantieZoeken" value="Zoeken">
 	</form>
@@ -75,7 +75,7 @@ if(isset($_SESSION['formValid']) && $_SESSION['formValid']) {
 			</tr>
 			<tr>
 				<td>
-					<a class="button" href="index.php?page=boekHotel&hotel=<?PHP echo $hotel->ID ?>">Boeken</a>
+					<a class="button" href="index.php?page=boekHotel&hotel=<?PHP echo $hotel->ID ?>">Boek kamer</a>
 					Vanaf: <?PHP echo $hotel->fromPrice ?> Euro.
 				</td>
 			</tr>
