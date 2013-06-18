@@ -32,10 +32,7 @@
 
 			try {
 				$result	= $client->UserRegistration(array('Name'=>$name, 'Lastname'=>$lname, 'Street'=>$street, 'HouseNumber'=>$housenmb, 'ZipCode'=>$zipcode, 'City'=>$addr, 'DateOfBirth'=>$birth, 'PhoneNumber'=>$phone, 'E-mail'=>$email, 'Password'=>$pass));
-				$_SESSION['user_id'] = $result->UserID;
-				$_SESSION['user_name'] = $name;
-				$_SESSION['user_lastname'] = $lname;
-				redirect('vakantie');
+				redirect('login');
 			} catch(Exception $e) {
 				echo '<div class="errormessage" id="notification">'.$e->getMessage().'</div>';
 				//$e->detail->fault->message.

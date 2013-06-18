@@ -19,9 +19,8 @@
 				$_SESSION['user_id'] = $result->UserID;
 				$_SESSION['user_name'] = $result->Name;
 				$_SESSION['user_lastname'] = $result->LastName;
-				$_SESSION['user_email'] = $username;
 
-				redirect("vakantie");
+				redirect();
 			} catch(Exception $e) {
 				echo '<div class="errormessage" id="notification">'.$e->detail->fault->message.'</div>';
 				//$e->detail->fault->message.
