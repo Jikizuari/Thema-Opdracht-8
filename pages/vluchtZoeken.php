@@ -69,7 +69,7 @@ if(isset($_SESSION['formValid']) && $_SESSION['formValid']) {
 	<?PHP if(isset($flights)) { ?>
 	 	<h1><strong>Gevonden</strong> vluchten (<?PHP echo count($flights); ?>)</h1>
 	 <?PHP } ?>
-	<table>
+	<table id="tableStyle">
 		<?PHP foreach ($flights as $flight): ?>
 			<tr>
 				<td width="230px"><span>Vluchtcode:</span> <?PHP echo $flight->flightCode ?></td>
