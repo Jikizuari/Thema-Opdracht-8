@@ -60,7 +60,6 @@
 	}
 
 	function calculatePrice($room) {
-		//hotel.setFromPrice( (h.getRoomTypes().get(0).getPricePerNight() * ( (int)Math.ceil((double)numberOfPersons / (double)h.getRoomTypes().get(0).getNumberOfPersons()))  ) * calculateDays(fromDate, toDate)+"");
 		$datetime1 = new DateTime($_SESSION['vanDatum']);
 		$datetime2 = new DateTime($_SESSION['totDatum']);
 		$days = $datetime1->diff($datetime2);
@@ -93,7 +92,7 @@
 	</tr>
 	<tr>
 		<td>
-			<a class="button" href="index.php?page=boekHotel&hotel=<?PHP echo $hotel->ID ?>">Boeken</a>
+			<a class="button" href="index.php?page=huurAuto&roomType=<?PHP echo $room->id ?>&numberOfRooms=<?PHP echo ceil( (double)$_SESSION['aantalPersonen'] / (double)$room->numberOfPersons ) ?>">Boeken</a>
 			Vanaf: <?PHP echo calculatePrice($room) ?> Euro.
 		</td>
 	</tr>

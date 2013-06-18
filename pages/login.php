@@ -20,7 +20,7 @@
 				$_SESSION['user_name'] = $result->Name;
 				$_SESSION['user_lastname'] = $result->LastName;
 
-				redirect();
+				redirect("vakantie");
 			} catch(Exception $e) {
 				echo '<div class="errormessage" id="notification">'.$e->detail->fault->message.'</div>';
 				//$e->detail->fault->message.
