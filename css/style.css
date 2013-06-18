@@ -402,6 +402,15 @@ blockquote:before {
 	vertical-align:-.4em;
 }
 
+td {
+	width:250px;
+}
+td span {
+	display:inline-block;
+	width:100px;
+	font-weight: bold;
+}
+
 .sbHolder{background-color:#fff;border:solid 1px #c3c3c3;font-size:12px;font-weight:normal;height:20px;position:relative;width:114px;}
 .sbSelector{display:block;height:16px;left:0;outline:none;overflow:hidden;position:absolute;text-indent:5px;top:2px;width:90px;border-right:1px solid #c3c3c3;}
 .sbSelector:link,.sbSelector:visited,.sbSelector:hover{color:#777;outline:none;text-decoration:none;}
