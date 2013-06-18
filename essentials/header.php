@@ -39,19 +39,19 @@
 					<div class="caption">
 						<p><h1>Op vakantie?</h1>
 							Stel nu uw eigen reis binnen 5 minuten samen!<br/>
-							<a class="sliderbutton" href="#">Begin hier &raquo;</a>
-						</p>
-					</div>
-				</div>
-				<div class="slide">
-					<img src="img/slider2.png" alt="Slide 1">
-					<div class="caption">
-						<p><h1>Op vakantie?</h1>
-							Stel nu uw eigen reis binnen 5 minuten samen!<br/>
 							<a class="sliderbutton" href="?page=vakantie">Begin hier &raquo;</a>
 						</p>
 					</div>
 				</div>	
+				<div class="slide">
+					<img src="img/slider2.png" alt="Slide 2">
+					<div class="caption">
+						<p><h1>Toe aan wat rust?</h1>
+							Boek dan makkelijk en snel een vakantie bij Distant Pleasure.<br/>
+							<a class="sliderbutton" href="?page=vakantie">Begin hier &raquo;</a>
+						</p>
+					</div>
+				</div>
 			</div>
 			<a href="#" class="prev"><img src="img/prev.png" alt="Arrow Prev"></a>
 			<a href="#" class="next"><img src="img/next.png" alt="Arrow Next"></a>

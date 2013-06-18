@@ -24,6 +24,9 @@ html, body {
 .clear {
 	clear:both;
 }
+.height {
+	height: 28px;
+}
 .successmessage {
 	border: 1px solid;
 	margin-bottom: 10px; 

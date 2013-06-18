@@ -26,7 +26,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td></td><td><input type="submit" class="button" value="Zoeken"></td>
+					<td></td><td><input type="submit" class="button height" value="Zoeken"></td>
 				</tr>
 			</table>
 		</form>

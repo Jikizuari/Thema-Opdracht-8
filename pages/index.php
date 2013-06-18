@@ -2,7 +2,7 @@
 	<div class="left" id="main-content-content">
 		<h1><strong>Welkom</strong> bij Distant Pleasure</h1>
 
-		<h2>Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres. Quid de Platone aut de Democrito loquar? In eo enim positum est id, quod dicimus esse expetendum. Cum autem in quo sapienter dicimus, id a primo rectissime dicitur. Tu vero, inquam, ducas licet, si sequetur; Nihil enim iam habes, quod ad corpus referas.</h2>
+		<h2>Een weekend cultuur opsnuiven in Rome. Met vriendinnen shoppen in Londen. Een romantische trip naar New York. Een verre reis maken... Wat uw reisdoel ook is, het begint bij Distant Pleasure. Een reis boeken op distantpleasure.nl is eenvoudig en voordelig. Kies uw bestemming. Vind de beste tarieven.</h2>
 
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cur ipse Pythagoras et Aegyptum lustravit et Persarum magos adiit? Esse enim quam vellet iniquus iustus poterat inpune. Cur deinde Metrodori liberos commendas? Non igitur potestis voluptate omnia dirigentes aut tueri aut retinere virtutem. Re mihi non aeque satisfacit, et quidem locis pluribus. Duo Reges: constructio interrete. </p>
 
