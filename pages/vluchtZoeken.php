@@ -22,8 +22,8 @@ if(isset($_SESSION['formValid']) && $_SESSION['formValid']) {
 	$req 						= new stdClass();
 	$req->departureAirport 		= $_SESSION['vertrekhaven'];
 	$req->arrivalAirport 		= $_SESSION['bestemming'];
-	$req->departureDate 		= $_SESSION['vertrekDatum'];
-	$req->arrivalDate 			= $_SESSION['aankomstDatum'];
+	$req->departureDate 		= $_SESSION['vanDatum'];
+	$req->arrivalDate 			= $_SESSION['totDatum'];
 
 	try {
 		$result	= $client->searchFlight($req);
