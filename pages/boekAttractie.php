@@ -25,7 +25,7 @@ if(isset($_SESSION['stap3']) && $_SESSION['stap3']) {
 	$req->searchattractions->holiday_end_dateField	= $_SESSION['totDatum'];
 	$req->searchattractions->holiday_start_dateField = $_SESSION['vanDatum'];
 	$req->searchattractions->placeField	= $_SESSION['bestemming'];
-	$req->searchattractions->reachField	= 10050;
+	$req->searchattractions->reachField	= 10000;
 	try {
 		$result	= $client->searchAttraction($req);
 		if(isset($result->searchAttractionResult->attraction)) {

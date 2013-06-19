@@ -113,7 +113,7 @@
 			$req->searchattractions->holiday_end_dateField		= $_SESSION['totDatum'];
 			$req->searchattractions->holiday_start_dateField		= $_SESSION['vanDatum'];
 			$req->searchattractions->placeField	= $_SESSION['bestemming'];
-			$req->searchattractions->reachField	= 50;
+			$req->searchattractions->reachField	= 10000;
 			try {
 				$result	= $client->searchAttraction($req);
 				if(isset($result->searchAttractionResult->attraction)) {
@@ -156,8 +156,8 @@
 		<br/>
 		<table id="tableStyle">
 			<tr><td><span>Auto</span> <?php echo $car->Name ?></td></tr>
-			<tr><td><span>Max. aant. personen</span> <?php echo $car->NumP ?></td></tr>
-			<tr><td><span>Prijs</span> <?php echo number_format($car->Price, 2, ',', '.') ?></td></tr>
+			<tr><td><span>Max. aant. p.</span> <?php echo $car->NumP ?></td></tr>
+			<tr><td><span>Prijs</span> &euro; <?php echo number_format($car->Price, 2, ',', '.') ?></td></tr>
 		</table>
 		<br/>
 		<br/>
