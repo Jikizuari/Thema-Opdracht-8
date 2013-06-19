@@ -456,3 +456,47 @@ h3:first-letter {
 .sbOptions .sbSub{padding-left:17px;}
 
 #ui-datepicker-div { z-index: 999;}
+
+
+.sidebarBoeken, .sidebarBoeken a {
+	text-align: center;
+	padding-bottom: 20px;
+	font-size:14px;
+	opacity: 0.8;
+	color: #aaa;
+	-webkit-transition:all .2s ease-in-out;
+	-moz-transition:all .2s ease-in-out;
+	-ms-transition:all .2s ease-in-out;
+	-o-transition:all .2s ease-in-out;
+	transition:all .2s ease-in-out;
+}
+
+.sidebarBoeken:hover, .sidebarBoeken:hover a {
+	color: #222;
+}
+
+.sidebarNonactive {
+	background: #ddd;
+	font-size:18px;
+	width:50px;
+	text-align: center;
+	height:50px;
+	display:block;
+	margin: 0 auto;
+	line-height:50px;
+	border-radius:50%;
+	
+}
+
+.sidebarActive {
+	background: #7f9b36;
+	font-size:18px;
+	width:50px;
+	text-align: center;
+	height:50px;
+	display:block;
+	margin: 0 auto;
+	line-height:50px;
+	border-radius:50%;
+	color: white;
+}
