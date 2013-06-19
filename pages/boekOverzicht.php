@@ -113,7 +113,7 @@
 			$req->searchattractions->holiday_end_dateField		= $_SESSION['totDatum'];
 			$req->searchattractions->holiday_start_dateField		= $_SESSION['vanDatum'];
 			$req->searchattractions->placeField	= $_SESSION['bestemming'];
-			$req->searchattractions->reachField	= 10000;
+			$req->searchattractions->reachField	= 50;
 			try {
 				$result	= $client->searchAttraction($req);
 				if(isset($result->searchAttractionResult->attraction)) {
