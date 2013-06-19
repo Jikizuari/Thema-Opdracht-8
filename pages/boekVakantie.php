@@ -77,9 +77,8 @@ if(isset($_SESSION['auto_id'])) {
 	$req 		= new rentCar();
 	$req->name 	= $_SESSION['user_name']." ".$_SESSION['user_lastname'];
 	$req->start = $_SESSION['vanDatum'];
-	$reg->end 	= $_SESSION['totDatum'];
-	$reg->carid = $_SESSION['auto_id'];
-
+	$req->end 	= $_SESSION['totDatum'];
+	$req->carid = $_SESSION['auto_id'];
 	try {
 		$result	= $client->RentCar($req);
 		if(isset($result->RentCarResult))
