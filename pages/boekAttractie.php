@@ -44,6 +44,8 @@ if(isset($_SESSION['stap3']) && $_SESSION['stap3']) {
 		echo '<div class="errormessage" id="notification">'.$e->detail->fault->message.'</div>';
 	}
 	
+} else {
+	redirect("huurAuto");
 }
 ?>
 <h1>Attracties Boeken</h1>
@@ -76,11 +78,13 @@ if(isset($_SESSION['stap3']) && $_SESSION['stap3']) {
 	</tr>
 	<tr>
 		<td>
-			<a class="button" href="index.php?page=boekAttractie&attr=<?PHP echo $attr->idField ?>">Kaarten kopen</a>
+			<a class="button" href="index.php?page=boekVakantie&attr=<?PHP echo $attr->idField ?>">Kaarten kopen</a>
 		</td>
 	</tr>
 	<tr><td>&nbsp;&nbsp;</tr>
 <?PHP endforeach; ?>
 </table>
+<hr />
+<a class="button" href="index.php?page=cancel">Cancel</a> <a class="button" href="index.php?page=boekVakantie">Next</a>
 </div>
 <div class="clear"></div>

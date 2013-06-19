@@ -16,7 +16,7 @@
 				$_SESSION['user_name'] = $result->Name;
 				$_SESSION['user_lastname'] = $result->LastName;
 
-				redirect();
+				redirect("vakantie");
 			} catch(Exception $e) {
 				require_once('essentials/usererror.php');
 				$u = new userError();
