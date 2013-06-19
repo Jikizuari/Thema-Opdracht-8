@@ -38,7 +38,7 @@ if(isset($_SESSION['stap3']) && $_SESSION['stap3']) {
 			}
 		}
 		if(empty($attracties))
-			redirect("boekVakantie");
+			redirect("boekOverzicht");
 
 	} catch(Exception $e) {
 		echo '<div class="errormessage" id="notification">'.$e->detail->fault->message.'</div>';
