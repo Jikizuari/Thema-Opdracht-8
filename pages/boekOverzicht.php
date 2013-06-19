@@ -138,12 +138,12 @@
 			redirect("vakantie");
 		}
 		?>	
-		<h1><strong>Boek </strong> overzicht (<?php echo $_SESSION['vanDatum']." - ".$_SESSION['totDatum'] ?>)</h1>
+		<h1><strong>Boekings</strong>overzicht (<?php echo $_SESSION['vanDatum']." - ".$_SESSION['totDatum'] ?>)</h1>
 
-		<table id="tableStyle">00
+		<table id="tableStyle">
 			<tr><td><span>Vertrekhaven</span> <?php echo $vlucht->departureAirport->name ?></td><td><span>Bestemming</span> <?php echo $vlucht->arrivalAirport->name ?></td></tr>
 			<tr><td><span>Vluchtcode</span> <?php echo $vlucht->flightCode ?></td><td><span>Vliegtuig</span> <?php echo $vlucht->airline ." - ". $vlucht->airplane->type ?></td></tr>
-			<tr><td><span>Vertrekdatum</span> <?php echo $vlucht->departureDate ?></td><td><span>Aankomstdatum</span> <?php echo $vlucht->arrivalDate ?></td></tr>
+			<tr><td><span>Vertrekdatum</span> <?php echo str_replace(array("T", "Z"), " ", $vlucht->departureDate) ?></td><td><span>Aankomstdatum</span> <?php echo str_replace(array("T", "Z"), " ", $vlucht->arrivalDate) ?></td></tr>
 			<tr><td><span>Prijs</span> &euro; <?php echo number_format(($_SESSION['aantalPersonen']*89), 2, ',', '.') ?></td></tr>
 		</table>
 		<br/>
@@ -153,7 +153,14 @@
 			<tr><td><span>Type kamer</span> <?php echo $room->name ?></td></tr>
 			<tr><td><span>Prijs</span> &euro; <?php echo number_format(calculatePrice($room), 2, ',', '.') ?></td></tr>
 		</table>
-		<br/><br/>
+		<br/>
+		<table id="tableStyle">
+			<tr><td><span>Auto</span> <?php echo $car->Name ?></td></tr>
+			<tr><td><span>Max. aant. personen</span> <?php echo $car->NumP ?></td></tr>
+			<tr><td><span>Prijs</span> <?php echo number_format($car->Price, 2, ',', '.') ?></td></tr>
+		</table>
+		<br/>
+		<br/>
 		<pre>
 		<?PHP
 		var_dump($vlucht);
