@@ -7,6 +7,7 @@ if(isset($_GET['vlucht'])){
 	$_SESSION['vlucht_id'] = $_GET['vlucht']; 
 	$_SESSION['stap1']		= true;
 }
+var_dump($_SESSION);
 if(isset($_SESSION['stap1']) && $_SESSION['stap1']) {
 	$client	= new SoapClient("http://tomcat.dkmedia.nl/hotelservice/hotelservice?wsdl");
 

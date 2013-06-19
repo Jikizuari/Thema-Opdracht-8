@@ -12,20 +12,20 @@ if( !(isset($_SESSION['stap5']) && $_SESSION['stap5']) ) {
 }
 //boek vlucht
 //######################################################################
-$client	= new SoapClient("http://tomcat.dkmedia.nl/flightservice/flightservice?wsdl");
+// $client	= new SoapClient("http://tomcat.dkmedia.nl/flightservice/flightservice?wsdl");
 
-$req 						= new stdClass();
-$req->departureAirport 		= $_SESSION['vertrekhaven'];
-$req->arrivalAirport 		= $_SESSION['bestemming'];
-$req->departureDate 		= $_SESSION['vanDatum'];
-$req->arrivalDate 			= $_SESSION['totDatum'];
-// var_dump($client->__getFunctions());
-// var_dump($client->__getTypes());
-try {
-	//$result	= $client->searchFlight($req);
-	//$result = $client->bookFlight();
+// $req 						= new stdClass();
+// $req->departureAirport 		= $_SESSION['vertrekhaven'];
+// $req->arrivalAirport 		= $_SESSION['bestemming'];
+// $req->departureDate 		= $_SESSION['vanDatum'];
+// $req->arrivalDate 			= $_SESSION['totDatum'];
+// // var_dump($client->__getFunctions());
+// // var_dump($client->__getTypes());
+// try {
+// 	//$result	= $client->searchFlight($req);
+// 	//$result = $client->bookFlight();
 
-} catch(Exception $e) { echo $e; }
+// } catch(Exception $e) { echo $e; }
 
 //boek hotel/room
 //######################################################################
