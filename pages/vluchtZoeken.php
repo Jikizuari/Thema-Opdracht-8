@@ -19,7 +19,7 @@
 			} else if($_SESSION['bestemming'] == "") {
 				echo '<div class="errormessage" id="notification">Vul een bestemming in.</div>';
 				$_SESSION['formValid'] = false;
-			} else if($_SESSION['aantalPersonen'] == "" || !is_int($_SESSION['aantalPersonen'])) {
+			} else if($_SESSION['aantalPersonen'] == "" || !is_numeric($_SESSION['aantalPersonen'])) {
 				echo '<div class="errormessage" id="notification">Vul een aantal personen in.</div>';
 				$_SESSION['formValid'] = false;
 			} else if($_SESSION['vanDatum'] == "") {
