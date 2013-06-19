@@ -38,7 +38,7 @@ if(isset($_SESSION['stap1']) && $_SESSION['stap1']) {
 		<td><h3><?PHP echo $hotel->name ?></h3></td>
 	</tr>
 	<tr>
-		<td id="topalign" rowspan="3">
+		<td rowspan="3">
 			<?PHP
 			if(is_array($hotel->photos->photo)) {
 				$photoUrl = $hotel->photos->photo[0]->url;
