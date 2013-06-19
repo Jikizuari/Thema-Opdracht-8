@@ -180,6 +180,7 @@ header {
 .caption h1 {
 	text-transform: uppercase;
 	margin-bottom:10px;
+	font-size: 17px;
 }
 
 /*Navigation*/
