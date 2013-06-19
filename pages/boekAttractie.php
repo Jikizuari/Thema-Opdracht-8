@@ -78,13 +78,13 @@ if(isset($_SESSION['stap3']) && $_SESSION['stap3']) {
 	</tr>
 	<tr>
 		<td>
-			<a class="button" href="index.php?page=boekVakantie&attr=<?PHP echo $attr->idField ?>">Kaarten kopen</a>
+			<a class="button" href="index.php?page=boekOverzicht&attr=<?PHP echo $attr->idField ?>">Kaarten kopen</a>
 		</td>
 	</tr>
 	<tr><td>&nbsp;&nbsp;</tr>
 <?PHP endforeach; ?>
 </table>
 <hr />
-<a class="button" href="index.php?page=cancel">Cancel</a> <a class="button" href="index.php?page=boekVakantie">Next</a>
+<a class="button" href="index.php?page=cancel">Cancel</a> <a class="button" href="index.php?page=boekOverzicht">Next</a>
 </div>
 <div class="clear"></div>
