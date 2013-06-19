@@ -108,8 +108,8 @@ if(isset($_SESSION['attr_id'])) {
 	$req->attractionbookingreq->visit_dayField = $_SESSION['vanDatum'];
 	try {
 		$result	= $client->bookAttraction($req);
-		if(isset($result->attraction_booking_idField))
-			$attr = $result->attraction_booking_idField;
+		if(isset($result->bookAttractionResult->attraction_booking_idField))
+			$attr = $result->bookAttractionResult->attraction_booking_idField;
 	} catch(Exception $e) {	echo $e; }
 }
 

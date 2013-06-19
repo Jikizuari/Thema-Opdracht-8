@@ -52,10 +52,10 @@ if(isset($_SESSION['stap3']) && $_SESSION['stap3']) {
 <table>
 <?PHP foreach ($attracties as $attr): ?>
 	<tr>
-		<td rowspan="6">
+		<td rowspan="6"><pre>
 			<?PHP if(isset($attr->attractionphotosField->attractionphoto) && is_array($attr->attractionphotosField->attractionphoto)){
 				$photoUrl = $attr->attractionphotosField->attractionphoto[0]->urlField;
-			} else {
+			} elseif(isset($attr->attractionphotosField->attractionphoto->urlField)) {
 				$photoUrl = $attr->attractionphotosField->attractionphoto->urlField;
 			} ?>
 			<img src="<?PHP echo $photoUrl ?>" style="max-width: 150px; max-height: 150px; padding: 5px;">
