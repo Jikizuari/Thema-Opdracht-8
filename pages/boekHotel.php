@@ -27,8 +27,11 @@
 		} catch(Exception $e) {}
 		
 		foreach ($hotels as $h) {
-			if($h->ID == $_SESSION['hotel_id'])
+			if($h->ID == $_SESSION['hotel_id']) {
 				$hotel = $h;
+				$_SESSION['hotel_name'] = $hotel->name;
+				$_SESSION['hotel_city'] = $hotel->city;
+			}
 		}
 		if($hotel == null)
 			echo '<div class="errormessage" id="notification">Hotel niet gevonden!</div>';

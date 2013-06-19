@@ -149,7 +149,8 @@
 		$_SESSION['totalprice'] = ($prijs * 1.04)
 
 		?>	
-		<h1><strong>Boekings</strong>overzicht (<?php echo $_SESSION['vanDatum']." - ".$_SESSION['totDatum'] ?>)</h1>
+		<h1><strong>Boekings</strong>overzicht</h1>
+		<h2><?php echo $_SESSION['vanDatum']." - ".$_SESSION['totDatum'] ?></h2>
 
 		<table id="tableStyle">
 			<tr><td><span>Vertrekhaven</span> <?php echo $vlucht->departureAirport->name ?></td><td><span>Bestemming</span> <?php echo $vlucht->arrivalAirport->name ?></td></tr>
@@ -182,7 +183,7 @@
 		<?php } ?>
 		<b>Totaalprijs exc. toeslag</b> &euro; <?php echo number_format($prijs, 2, ',', '.'); ?><br/>
 		<b>Totaalprijs inc. toeslag</b> &euro; <?php echo number_format($_SESSION['totalprice'], 2, ',', '.'); ?><br/><br/>
-		<a class="button right" href="index.php?page=cancel">Cancel</a> <a class="button right" href="index.php?page=boekVakantie">Boek</a>
+		<a class="button right" href="index.php?page=boekVakantie">Boek</a> <a class="button right" href="index.php?page=cancel">Cancel</a>
 	</div>
 </div>
 <div class="clear"></div>
