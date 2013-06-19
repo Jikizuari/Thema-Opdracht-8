@@ -27,13 +27,15 @@ if(isset($_SESSION['stap5']) && $_SESSION['stap5']) {
 	try {
 		$result	= $client->searchFlight($req);
 		if(is_array($result->return)) {
-			foreach ($result->return as $v) {
-				if($v->flightId == $_SESSION['vlucht_id'])
-					$vlucht = $v; 
-			}
+			$vlucht = $return;
+			// foreach ($result->return as $v) {
+			// 	if($v->flightId == $_SESSION['vlucht_id'])
+			// 		$vlucht = $v; 
+			// }
 		} else {
-			if($result->return->flightId == $_SESSION['vlucht_id'])
-					$vlucht = $result->return; 
+			$vlucht = $return;
+			//if($result->return->flightId == $_SESSION['vlucht_id'])
+			//		$vlucht = $result->return; 
 		}
 	} catch(Exception $e) {
 		//echo '<div class="errormessage" id="notification">'.$e->detail->fault->message.'</div>';
