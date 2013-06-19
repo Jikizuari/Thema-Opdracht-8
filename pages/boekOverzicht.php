@@ -19,23 +19,21 @@ if(isset($_SESSION['stap5']) && $_SESSION['stap5']) {
 	$client	= new SoapClient("http://env-9681936.jelastichosting.nl/fs/services/flightservice?wsdl");
 
 	$req 						= new stdClass();
-	$req->departureAirport 		= $_SESSION['vertrekhaven'];
-	$req->arrivalAirport 		= $_SESSION['bestemming'];
-	$req->departureDate 		= $_SESSION['vanDatum'];
-	$req->arrivalDate 			= $_SESSION['totDatum'];
+	$req->arg0 		= $_SESSION['vertrekhaven'];
+	$req->arg1 		= $_SESSION['bestemming'];
+	$req->arg2		= date("d-m-y H:i:s", strtotime($_SESSION['vanDatum']));
+	$req->arg3		= date("d-m-y H:i:s", strtotime($_SESSION['totDatum']));
 
 	try {
 		$result	= $client->searchFlight($req);
 		if(is_array($result->return)) {
-			$vlucht = $return;
-			// foreach ($result->return as $v) {
-			// 	if($v->flightId == $_SESSION['vlucht_id'])
-			// 		$vlucht = $v; 
-			// }
+			foreach ($result->return as $v) {
+				if($v->flightId == $_SESSION['vlucht_id'])
+					$vlucht = $v; 
+			}
 		} else {
-			$vlucht = $return;
-			//if($result->return->flightId == $_SESSION['vlucht_id'])
-			//		$vlucht = $result->return; 
+			if($result->return->flightId == $_SESSION['vlucht_id'])
+					$vlucht = $result->return; 
 		}
 	} catch(Exception $e) {
 		//echo '<div class="errormessage" id="notification">'.$e->detail->fault->message.'</div>';
