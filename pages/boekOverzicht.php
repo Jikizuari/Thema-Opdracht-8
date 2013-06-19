@@ -150,7 +150,7 @@
 
 		?>	
 		<h1><strong>Boekings</strong>overzicht</h1>
-		<h2><?php echo $_SESSION['vanDatum']." - ".$_SESSION['totDatum'] ?></h2>
+		<h2><?php echo $_SESSION['vanDatum']." - ".$_SESSION['totDatum'] ?></h2><br/><br/>
 
 		<table id="tableStyle">
 			<tr><td><span>Vertrekhaven</span> <?php echo $vlucht->departureAirport->name ?></td><td><span>Bestemming</span> <?php echo $vlucht->arrivalAirport->name ?></td></tr>
@@ -160,7 +160,7 @@
 		</table>
 		<br/>
 		<table id="tableStyle">
-			<tr><td><span>Hotel</span> <?php echo $_SESSION['hotel_name'] ?></td></tr>
+			<tr><td><span>Naam hotel</span> <?php echo $_SESSION['hotel_name'] ?></td></tr>
 			<tr><td><span>Woonplaats</span> <?php echo $_SESSION['hotel_city'] ?></td></tr>
 			<tr><td><span>Type kamer</span> <?php echo $room->name ?></td></tr>
 			<tr><td><span>Prijs</span> &euro; <?php echo number_format(calculatePrice($room), 2, ',', '.') ?></td></tr>
@@ -168,14 +168,14 @@
 		<br/>
 		<?php if(isset($_SESSION['auto_id'])) { ?>
 		<table id="tableStyle">
-			<tr><td><span>Auto</span> <?php echo $car->Name ?></td></tr>
+			<tr><td><span>Huurauto</span> <?php echo $car->Name ?></td></tr>
 			<tr><td><span>Max. personen</span> <?php echo $car->NumP ?></td></tr>
 			<tr><td><span>Prijs</span> &euro; <?php echo number_format($car->Price, 2, ',', '.') ?></td></tr>
 		</table>
 		<br/>
 		<?php } if(isset($_SESSION['attr_id'])) { ?>
 		<table id="tableStyle">
-			<tr><td><span>Naam</span> <?php echo $attr->nameField ?></td></tr>
+			<tr><td><span>Naam attractie</span> <?php echo $attr->nameField ?></td></tr>
 			<tr><td><span>Woonplaats</span> <?php echo $attr->cityField ?></td></tr>
 			<tr><td><span>Prijs</span> &euro; <?php echo number_format(($attr->priceField*$_SESSION['aantalPersonen']), 2, ',', '.') ?></td></tr>
 		</table>
@@ -183,7 +183,7 @@
 		<?php } ?>
 		<b>Totaalprijs exc. toeslag</b> &euro; <?php echo number_format($prijs, 2, ',', '.'); ?><br/>
 		<b>Totaalprijs inc. toeslag</b> &euro; <?php echo number_format($_SESSION['totalprice'], 2, ',', '.'); ?><br/><br/>
-		<a class="button right" href="index.php?page=boekVakantie">Boek</a> <a class="button right" href="index.php?page=cancel">Cancel</a>
+		<a class="button right" href="index.php?page=boekVakantie">Boek</a> <a class="button right" href="index.php?page=cancel">Annuleer</a>
 	</div>
 </div>
 <div class="clear"></div>
