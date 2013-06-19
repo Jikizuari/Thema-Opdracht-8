@@ -6,11 +6,9 @@ if(isset($_SESSION['stap4']) && $_SESSION['stap4']){
 		$_SESSION['attr_id'] = $_GET['attr'];
 }
 
-if(!isset($_SESSION['user_id'])){ ?>
-	<h1>Gebruiker account</h1>
-	<p>Maak een <A HREF="index.php?page=register">account aan</a> of <a href="index.php?page=login">login</a>?</p>
-	</div><div class="clear"></div>
-<?PHP die(); }
+if(!isset($_SESSION['user_id'])){
+	redirect('login');
+}
 
 $vlucht = null;
 $room = null;
@@ -18,8 +16,7 @@ $car = null;
 $attr = null;
 
 if(isset($_SESSION['stap5']) && $_SESSION['stap5']) {
-	//get vlucht
-	$client	= new SoapClient("http://tomcat.dkmedia.nl/flightservice/flightservice?wsdl");
+	$client	= new SoapClient("http://env-9681936.jelastichosting.nl/fs/services/flightservice?wsdl");
 
 	$req 						= new stdClass();
 	$req->departureAirport 		= $_SESSION['vertrekhaven'];

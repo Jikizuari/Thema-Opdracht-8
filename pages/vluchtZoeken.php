@@ -35,7 +35,7 @@
 		if(isset($_SESSION['formValid']) && $_SESSION['formValid']) {
 			$client	= new SoapClient("http://env-9681936.jelastichosting.nl/fs/services/flightservice?wsdl");
 
-			$req 						= new stdClass();
+			$req 			= new stdClass();
 			$req->arg0 		= $_SESSION['vertrekhaven'];
 			$req->arg1 		= $_SESSION['bestemming'];
 			$req->arg2		= date("d-m-y H:i:s", strtotime($_SESSION['vanDatum']));
@@ -43,7 +43,6 @@
 
 			try {
 				$result	= $client->searchFlight($req);
-		//var_dump($result);
 				if(is_array($result->return)) {
 					foreach ($result->return as $vlucht) {
 						$flights[] = $vlucht;
@@ -53,7 +52,6 @@
 				}
 			} catch(Exception $e) {
 				echo '<div class="errormessage" id="notification">'.$e->detail->fault->message.'</div>';
-			//$e->detail->fault->message.
 			}
 		}
 		?>
