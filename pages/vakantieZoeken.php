@@ -1,4 +1,5 @@
 <div class="right" id="main-content-right">
+		<div class"left" id="main-content-content">
 <?PHP //hotels ophalen 
 $hotels = array();
 
@@ -30,34 +31,46 @@ if(isset($_SESSION['stap1']) && $_SESSION['stap1']) {
 		}
 }
 ?>
-	<table>
-		<?PHP foreach ($hotels as $hotel): ?>
-			<tr>
-				<td><h3><?PHP echo $hotel->name ?></h3></td>
-			</tr>
-			<tr>
-				<td rowspan="3">
-				<?PHP
-				if(is_array($hotel->photos->photo)) {
-					$photoUrl = $hotel->photos->photo[0]->url;
-				} else {
-					$photoUrl = $hotel->photos->photo->url;
-				}
-				?>
-				<img src="<?PHP echo $photoUrl ?>" style="max-width: 150px; max-height: 150px;">
-			</td>
-			</tr>
-			<tr>
-				<td><?PHP echo strlen($hotel->description) > 350 ? substr($hotel->description, 0, 350).'...' : $hotel->description  ?></td>
-			</tr>
-			<tr>
-				<td>
-					<a class="button" href="index.php?page=boekHotel&hotel=<?PHP echo $hotel->ID ?>">Boeken</a>
-					Vanaf: <?PHP echo $hotel->fromPrice ?> Euro.
-				</td>
-			</tr>
-		<?PHP endforeach; ?>
-	</table>
-
+<h1>Beschikbare hotels</h1>
+<table>
+	<?PHP foreach ($hotels as $hotel): ?>
+	<tr>
+		<td><h3><?PHP echo $hotel->name ?></h3></td>
+	</tr>
+	<tr>
+		<td id="topalign" rowspan="3">
+			<?PHP
+			if(is_array($hotel->photos->photo)) {
+				$photoUrl = $hotel->photos->photo[0]->url;
+			} else {
+				$photoUrl = $hotel->photos->photo->url;
+			}
+			?>
+			<img src="<?PHP echo $photoUrl ?>" style="max-width: 150px; max-height: 150px;">
+		</td>
+	</tr>
+	<tr id="hotel">
+		<td id="hotel"><?PHP 
+		if(strlen($hotel->description) == 0) {
+			echo 'Er is geen informatie beschikbaar.';
+		} else {
+			echo strlen($hotel->description) > 350 ? substr($hotel->description, 0, 350).'...' : $hotel->description;
+		}
+		?></td>
+	</tr>
+	<tr>
+		<td class="right">
+			<a class="right button" href="index.php?page=boekHotel&hotel=<?PHP echo $hotel->ID ?>">Boeken</a>
+			<span class="right hotelspan"> Vanaf: <?PHP echo $hotel->fromPrice ?> Euro.</span>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	<?PHP endforeach; ?>
+</table>
+<a class="right button" href="index.php?page=cancel">Annuleer</a>
+</div>
 </div>
 <div class="clear"></div>

@@ -137,6 +137,17 @@
 		} else {
 			redirect("vakantie");
 		}
+
+		$prijs = ($_SESSION['aantalPersonen']*89);
+		$prijs = $prijs + calculatePrice($room);
+		if(isset($_SESSION['auto_id'])) {
+			$prijs = $prijs + $car->Price;
+		}
+		if(isset($_SESSION['attr_id'])) {
+			$prijs = $prijs + ($attr->priceField*$_SESSION['aantalPersonen']);
+		}
+		$_SESSION['totalprice'] = ($prijs * 1.04)
+
 		?>	
 		<h1><strong>Boekings</strong>overzicht (<?php echo $_SESSION['vanDatum']." - ".$_SESSION['totDatum'] ?>)</h1>
 
@@ -154,21 +165,24 @@
 			<tr><td><span>Prijs</span> &euro; <?php echo number_format(calculatePrice($room), 2, ',', '.') ?></td></tr>
 		</table>
 		<br/>
+		<?php if(isset($_SESSION['auto_id'])) { ?>
 		<table id="tableStyle">
 			<tr><td><span>Auto</span> <?php echo $car->Name ?></td></tr>
-			<tr><td><span>Max. aant. p.</span> <?php echo $car->NumP ?></td></tr>
+			<tr><td><span>Max. personen</span> <?php echo $car->NumP ?></td></tr>
 			<tr><td><span>Prijs</span> &euro; <?php echo number_format($car->Price, 2, ',', '.') ?></td></tr>
 		</table>
 		<br/>
+		<?php } if(isset($_SESSION['attr_id'])) { ?>
+		<table id="tableStyle">
+			<tr><td><span>Naam</span> <?php echo $attr->nameField ?></td></tr>
+			<tr><td><span>Woonplaats</span> <?php echo $attr->cityField ?></td></tr>
+			<tr><td><span>Prijs</span> &euro; <?php echo number_format(($attr->priceField*$_SESSION['aantalPersonen']), 2, ',', '.') ?></td></tr>
+		</table>
 		<br/>
-		<pre>
-		<?PHP
-		var_dump($vlucht);
-		var_dump($room);
-		var_dump($car);
-		var_dump($attr);
-		?>
-		</pre>
+		<?php } ?>
+		<b>Totaalprijs exc. toeslag</b> &euro; <?php echo number_format($prijs, 2, ',', '.'); ?><br/>
+		<b>Totaalprijs inc. toeslag</b> &euro; <?php echo number_format($_SESSION['totalprice'], 2, ',', '.'); ?><br/><br/>
+		<a class="button right" href="index.php?page=cancel">Cancel</a> <a class="button right" href="index.php?page=boekVakantie">Boek</a>
 	</div>
 </div>
 <div class="clear"></div>

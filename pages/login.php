@@ -28,6 +28,9 @@
 				echo '<div class="errormessage" id="notification">'.$errorMessage.'</div>';
 			}
 		}
+		if(isset($_SESSION['stap4'])) {
+			echo '<div class="errormessage" id="notification">U dient ingelogd te zijn om verder te kunnen.</div>';
+		}
 		?>
 		<form id="registerForm" name="loginForm" action="" method="post">
 
@@ -39,11 +42,16 @@
 				<label class="label">Wachtwoord</label>
 					<span>Uw wachtwoord</span>
 				<input type="password" id="password" name="password" />
-				Heeft u nog geen account? Klik <a href="?page=register">hier</a> om een gratis account aan te maken.
+				
 			<button class="right button" type="submit" name="submit" >Inloggen</button>
 		</form>
 	</div>
-
+	<div class="right" id="main-content-sidebar">
+		<div class="side">
+		<h1><strong>Nieuw</strong> hier?</h1>
+		Heeft u nog geen account? Klik <a href="?page=register">hier</a> om een gratis account aan te maken.
+	</div>
+	</div>
 	</div>
 <div class="clear"></div>
 	

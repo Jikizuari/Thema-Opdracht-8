@@ -64,6 +64,6 @@ if(isset($_SESSION['stap3']) && $_SESSION['stap3']) {
 <?PHP endforeach; ?>
 </table>
 <hr />
-<a class="button" href="index.php?page=cancel">Cancel</a> <a class="button" href="index.php?page=boekAttractie">Next</a>
+<a class="right button" href="index.php?page=cancel">Annuleer</a> <a class="right button" href="index.php?page=boekAttractie">Overslaan</a>
 </div>
 <div class="clear"></div>
