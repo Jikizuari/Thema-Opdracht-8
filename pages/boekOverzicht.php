@@ -64,6 +64,13 @@ if(isset($_SESSION['stap5']) && $_SESSION['stap5']) {
 		echo $e;
 	}
 
+	function calculatePrice($room) {
+		$datetime1 = new DateTime($_SESSION['vanDatum']);
+		$datetime2 = new DateTime($_SESSION['totDatum']);
+		$days = $datetime1->diff($datetime2);
+		return ($room->pricePerNight * ceil( (double)$_SESSION['aantalPersonen'] / (double)$room->numberOfPersons ) ) * $days->days;
+	}
+
 	//get car
 	$client	= new SoapClient("http://iis.dkmedia.nl/TO8.VervoerService.svc?wsdl");
 	$req 					= new stdClass();
@@ -131,6 +138,21 @@ if(isset($_SESSION['stap5']) && $_SESSION['stap5']) {
 }
 ?>	
 <h1>Boek Vakantie</h1>
+
+<table id="tableStyle">
+	<tr><td><span>Vertrekhaven</span> <?php echo $vlucht->departureAirport->name ?></td><td><span>Vluchtcode</span> <?php echo $vlucht->flightCode ?></td></tr>
+	<tr><td><span>Bestemming</span> <?php echo $vlucht->arrivalAirport->name ?></td><td><span>Vliegtuig</span> <?php echo $vlucht->airline ." ". $vlucht->airplane->type ?></td></tr>
+	<tr><td><span>Vertrekdatum</span> <?php echo $vlucht->departureDate ?></td><td><span>Aankomstdatum</span> <?php echo $vlucht->arrivalDate ?></td></tr>
+	<tr><td><span>Prijs</span> &euro; <?php echo ($_SESSION['aantalPersonen']*89) ?></td></tr>
+</table>
+<br/>
+<table id="tableStyle">
+	<tr><td><span>Hotel</span> <?php echo $_SESSION['hotel_name'] ?></td></tr>
+	<tr><td><span>Woonplaats</span> <?php echo $_SESSION['hotel_city'] ?></td></tr>
+	<tr><td><span>Type kamer</span> <?php echo $room->name ?></td></tr>
+	<tr><td><span>Prijs</span> &euro; <?php echo calculatePrice($room) ?></td></tr>
+</table>
+
 <pre>
 <?PHP
 var_dump($vlucht);

@@ -22,8 +22,8 @@ if(isset($_SESSION['stap3']) && $_SESSION['stap3']) {
 	}
 	$client	= new SoapClient("http://iis.dkmedia.nl:85/WcfServiceLibrary1.Service1.svc?wsdl");
 	$req = new searchattraction();
-	$req->searchattractions->holiday_end_dateField		= $_SESSION['totDatum'];
-	$req->searchattractions->holiday_start_dateField		= $_SESSION['vanDatum'];
+	$req->searchattractions->holiday_end_dateField	= $_SESSION['totDatum'];
+	$req->searchattractions->holiday_start_dateField = $_SESSION['vanDatum'];
 	$req->searchattractions->placeField	= $_SESSION['bestemming'];
 	$req->searchattractions->reachField	= 50;
 	try {
