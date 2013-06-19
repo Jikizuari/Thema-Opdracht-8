@@ -1,16 +1,11 @@
 <div class="right" id="main-content-right">
 	<pre>
 <?PHP 
-if(isset($_SESSION['stap4']) && $_SESSION['stap4']){
-	$_SESSION['stap5'] = true;
-	if(isset($_GET['attr']))
-		$_SESSION['attr_id'] = $_GET['attr'];
-}
-
 $vlucht = 0;
 $hotel 	= 0;
 $car 	= 0;
 $attr 	= 0;
+$bookID = 0;
 
 if( !(isset($_SESSION['stap5']) && $_SESSION['stap5']) ) {
 	redirect("vakantie");
@@ -64,9 +59,9 @@ $room->numberOfrooms	= $_SESSION['hotel_numberOfRooms'];
 $req->rooms->room[]		= $room;
 
 try {
-	// $result	= $client->BookHotel($req);
-	// if(isset($result->bookId))
-	// 	$hotel = $result->bookId;
+	$result	= $client->BookHotel($req);
+	if(isset($result->bookId))
+		$hotel = $result->bookId;
 } catch(Exception $e) {	echo $e; }
 
 //boek car
@@ -118,21 +113,21 @@ if(isset($_SESSION['attr_id'])) {
 }
 
 //boek vakantie
-	//######################################################################
-	class Flights {
-		var $DepartureFlightID;
-		var $ReturnFlightID;
-	}
-	class BookHolidayRequest {
-		var $DepartureDate;
-		var $ReturnDate;
-		var $TotalPrice;
-		var $Flights;
-		var $HotelID;
-		var $TaxiID;
-		var $AttractionID;
-		var $UserID;
-		function __construct() {
+//######################################################################
+class Flights {
+	var $DepartureFlightID;
+	var $ReturnFlightID;
+}
+class BookHolidayRequest {
+	var $DepartureDate;
+	var $ReturnDate;
+	var $TotalPrice;
+	var $Flights;
+	var $HotelID;
+	var $TaxiID;
+	var $AttractionID;
+	var $UserID;
+	function __construct() {
 		$this->Flights = new Flights();
 		$this->AttractionID = array();
 	}
@@ -141,7 +136,7 @@ $client	= new SoapClient("http://tomcat.dkmedia.nl/tho8/userservice?wsdl");
 $req =  new BookHolidayRequest();
 $req->DepartureDate 		= $_SESSION['vanDatum'];
 $req->ReturnDate			= $_SESSION['totDatum'];
-$req->TotalPrice			= 200;
+$req->TotalPrice			= $_SESSION['totalprice'];
 $flights 					= new Flights();
 $flights->DepartureFlightID = 1;
 $flights->ReturnFlightID 	= 1;
@@ -153,18 +148,25 @@ $req->UserID 				= $_SESSION['user_id'];
 
 try {
 	$result	= $client->BookHoliday($req);
-	var_dump($result);
+	if(isset($result->HolidayID))
+		$bookID = $result->HolidayID;
 } catch(Exception $e) {	echo $e; }    
-
 ?>	
-<h1>Boek Vakantie</h1>
-<pre>
-<?PHP
-var_dump($vlucht);
-var_dump($room);
-var_dump($car);
-var_dump($attr);
-?>
-</pre>
+<h1>Vakantie geboekt</h1>
+<p>Uw vakantie is geboekt, een overzicht van uw vakanties kunt u <a href="index.php?page=myholidays">hier</a> vinden. </p>
+<p>Uw vakantie boek ID is '<?PHP $bookID ?>'</p>
 </div>
 <div class="clear"></div>
+
+<?PHP
+
+$user_id = $_SESSION['user_id'];
+$user_name = $_SESSION['user_name'];
+$user_lastname = $_SESSION['user_lastname'];
+
+session_destroy();
+session_start();
+
+$_SESSION['user_id'] = $user_id;
+$_SESSION['user_name'] = $user_name;
+$_SESSION['user_lastname'] = $user_lastname;
