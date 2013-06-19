@@ -114,5 +114,6 @@
 			</table>
 		</p>
 	</div>
+	<?php require_once('essentials/sidebar_boeken.php'); ?>
 </div>
 <div class="clear"></div>

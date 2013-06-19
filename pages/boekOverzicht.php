@@ -155,7 +155,7 @@
 		<table id="tableStyle">
 			<tr><td><span>Vertrekhaven</span> <?php echo $vlucht->departureAirport->name ?></td><td><span>Bestemming</span> <?php echo $vlucht->arrivalAirport->name ?></td></tr>
 			<tr><td><span>Vluchtcode</span> <?php echo $vlucht->flightCode ?></td><td><span>Vliegtuig</span> <?php echo $vlucht->airline ." - ". $vlucht->airplane->type ?></td></tr>
-			<tr><td><span>Vertrekdatum</span> <?php echo str_replace(array("T", "Z"), " ", $vlucht->departureDate) ?></td><td><span>Aankomstdatum</span> <?php echo str_replace(array("T", "Z"), " ", $vlucht->arrivalDate) ?></td></tr>
+			<tr><td><span>Vertrekdatum</span> <?php echo str_replace(array("T", "Z"), " ", $vlucht->departureDate) ?></td><td><span>Aankomst</span> <?php echo str_replace(array("T", "Z"), " ", $vlucht->arrivalDate) ?></td></tr>
 			<tr><td><span>Prijs</span> &euro; <?php echo number_format(($_SESSION['aantalPersonen']*89), 2, ',', '.') ?></td></tr>
 		</table>
 		<br/>
@@ -185,5 +185,6 @@
 		<b>Totaalprijs inc. toeslag</b> &euro; <?php echo number_format($_SESSION['totalprice'], 2, ',', '.'); ?><br/><br/>
 		<a class="button right" href="index.php?page=boekVakantie">Boek</a> <a class="button right" href="index.php?page=cancel">Annuleer</a>
 	</div>
+	<?php require_once('essentials/sidebar_boeken.php'); ?>
 </div>
 <div class="clear"></div>

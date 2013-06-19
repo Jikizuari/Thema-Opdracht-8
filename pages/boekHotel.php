@@ -1,9 +1,11 @@
 <div class="right" id="main-content-right">
-<?php
-	$rooms = array();
-	$hotel = null;
-	$client	= new SoapClient("http://tomcat.dkmedia.nl/hotelservice/hotelservice?wsdl");
-	
+	<div class="left" id="main-content-content">
+		<h1><strong>Hotel</strong> boeken</h1>
+		<?php
+		$rooms = array();
+		$hotel = null;
+		$client	= new SoapClient("http://tomcat.dkmedia.nl/hotelservice/hotelservice?wsdl");
+
 	if(isset($_GET['hotel'])) { //check of hotel bestaat
 		$_SESSION['stap2'] = false;
 		$_SESSION['hotel_id'] = $_GET['hotel'];
@@ -68,39 +70,41 @@
 		$days = $datetime1->diff($datetime2);
 		return ($room->pricePerNight * ceil( (double)$_SESSION['aantalPersonen'] / (double)$room->numberOfPersons ) ) * $days->days;
 	}
-?>
+	?>
 
-<h1><?PHP echo $hotel != null ? $hotel->name : "" ?></h1>
-<?PHP echo $hotel != null ? $hotel->description  : ""?>
-<hr />
-<table>
-<?PHP foreach ($rooms as $room): ?>
-	<tr>
-		<td><h3><?PHP echo $room->name ?></h3></td>
-	</tr>
-	<tr>
-		<td rowspan="3">
-		<?PHP
-		if(is_array($room->photos->photo)) {
-			$photoUrl = $room->photos->photo[0]->url;
-		} else {
-			$photoUrl = $room->photos->photo->url;
-		}
-		?>
-		<img src="<?PHP echo $photoUrl ?>" style="max-width: 150px; max-height: 150px;">
-	</td>
-	</tr>
-	<tr>
-		<td><?PHP echo strlen($room->description) > 350 ? substr($room->description, 0, 350).'...' : $room->description  ?></td>
-	</tr>
-	<tr>
-		<td>
-			<a class="button" href="index.php?page=huurAuto&roomType=<?PHP echo $room->id ?>&numberOfRooms=<?PHP echo ceil( (double)$_SESSION['aantalPersonen'] / (double)$room->numberOfPersons ) ?>">Boeken</a>
-			Vanaf: <?PHP echo calculatePrice($room) ?> Euro.
-		</td>
-	</tr>
-<?PHP endforeach; ?>
-</table>
-<a class="right button" href="index.php?page=cancel">Annuleer</a>
+	<h1><?PHP echo $hotel != null ? $hotel->name : "" ?></h1>
+	<?PHP echo $hotel != null ? $hotel->description  : ""?>
+	<hr />
+	<table>
+		<?PHP foreach ($rooms as $room): ?>
+		<tr>
+			<td><h3><?PHP echo $room->name ?></h3></td>
+		</tr>
+		<tr>
+			<td rowspan="3">
+				<?PHP
+				if(is_array($room->photos->photo)) {
+					$photoUrl = $room->photos->photo[0]->url;
+				} else {
+					$photoUrl = $room->photos->photo->url;
+				}
+				?>
+				<img src="<?PHP echo $photoUrl ?>" style="max-width: 150px; max-height: 150px;">
+			</td>
+		</tr>
+		<tr>
+			<td><?PHP echo strlen($room->description) > 350 ? substr($room->description, 0, 350).'...' : $room->description  ?></td>
+		</tr>
+		<tr>
+			<td>
+				<a class="button" href="index.php?page=huurAuto&roomType=<?PHP echo $room->id ?>&numberOfRooms=<?PHP echo ceil( (double)$_SESSION['aantalPersonen'] / (double)$room->numberOfPersons ) ?>">Boeken</a>
+				Vanaf: <?PHP echo calculatePrice($room) ?> Euro.
+			</td>
+		</tr>
+		<?PHP endforeach; ?>
+	</table>
+	<a class="right button" href="index.php?page=cancel">Annuleer</a>
+</div>
+	<?php require_once('essentials/sidebar_boeken.php'); ?>
 </div>
 <div class="clear"></div>
