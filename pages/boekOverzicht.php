@@ -138,13 +138,13 @@
 			redirect("vakantie");
 		}
 
-		$prijs =  ($_SESSION['aantalPersonen']*89);
-		$prijs .= calculatePrice($room);
+		$prijs = ($_SESSION['aantalPersonen']*89);
+		$prijs = $prijs + calculatePrice($room);
 		if(isset($_SESSION['auto_id'])) {
-			$prijs .= $car->Price;
+			$prijs = $prijs + $car->Price;
 		}
 		if(isset($_SESSION['attr_id'])) {
-			$prijs .= ($attr->priceField*$_SESSION['aantalPersonen']);
+			$prijs = $prijs + ($attr->priceField*$_SESSION['aantalPersonen']);
 		}
 		$_SESSION['totalprice'] = ($prijs * 1.04)
 
@@ -180,8 +180,8 @@
 		</table>
 		<br/>
 		<?php } ?>
-		<b>Totaalprijs exc. toeslag</b> <?php echo number_format($prijs, 2, ',', '.') ?><br/>
-		<b>Totaalprijs inc. toeslag</b> <?php echo number_format($_SESSION['totalprice'], 2, ',', '.') ?><br/>
+		<b>Totaalprijs exc. toeslag</b> <?php echo $prijs; ?><br/>
+		<b>Totaalprijs inc. toeslag</b> <?php echo number_format($_SESSION['totalprice'], 2, ',', '.'); ?><br/>
 	</div>
 </div>
 <div class="clear"></div>
