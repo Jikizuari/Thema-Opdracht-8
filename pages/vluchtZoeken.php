@@ -5,8 +5,8 @@
 		$flights = array();
 
 		if(isset($_POST['submit'])){
-			$_SESSION['vertrekhaven'] 		= $_POST['vertrekhaven'];
-			$_SESSION['bestemming'] 		= $_POST['bestemming'];
+			$_SESSION['vertrekhaven'] 		= ucfirst($_POST['vertrekhaven']);
+			$_SESSION['bestemming'] 		= ucfirst($_POST['bestemming']);
 			$_SESSION['vanDatum'] 			= $_POST['vertrekDatum'];
 			$_SESSION['totDatum'] 			= $_POST['aankomstDatum'];
 			$_SESSION['aantalPersonen']		= $_POST['aantalPersonen'];
@@ -67,16 +67,17 @@
 
 			<label>Vertrekdatum</label> 
 			<span>Wanneer wilt u vertrekken?</span>
-			<input name="vertrekDatum" class="datepicker" type="text" value="<?php if(isset($_SESSION['vanDatum'])) { echo $_SESSION['vanDatum']; } else { echo ""; } ?>"/>
+			<input style="padding-left:25px; width:235px;" name="vertrekDatum" class="datepicker" type="text" value="<?php if(isset($_SESSION['vanDatum'])) { echo $_SESSION['vanDatum']; } else { echo ""; } ?>"/>
 
-			<label>Aankomstdatum</label> 
-			<span>Wanneer hoopt u aan te komen?</span>
-			<input name="aankomstDatum" class="datepicker" type="text" value="<?php if(isset($_SESSION['totDatum'])) { echo $_SESSION['totDatum']; } else { echo ""; } ?>"/>
+			<label>Retourdatum</label> 
+			<span>Wanneer wilt u terug?</span>
+			<input style="padding-left:25px; width:235px;" name="aankomstDatum" class="datepicker" type="text" value="<?php if(isset($_SESSION['totDatum'])) { echo $_SESSION['totDatum']; } else { echo ""; } ?>"/>
 
 			<label>Aantal personen</label> 
 			<span>Met hoeveel personen wilt u gaan?</span>
 			<input name="aantalPersonen" type="text" value="<?php if(isset($_SESSION['aantalPersonen'])) { echo $_SESSION['aantalPersonen']; } else { echo ""; } ?>"/>
 
+			<a class="right button" href="index.php?page=cancel">Annuleer</a>
 			<button class="right button" type="submit" name="submit" >Zoeken</button>
 		</form>
 		<p>
