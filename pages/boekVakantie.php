@@ -108,7 +108,8 @@ if(isset($_SESSION['attr_id'])) {
 	$req->attractionbookingreq->visit_dayField = $_SESSION['vanDatum'];
 	try {
 		$result	= $client->bookAttraction($req);
-		var_dump($result);
+		if(isset($result->attraction_booking_idField))
+			$attr = $result->attraction_booking_idField;
 	} catch(Exception $e) {	echo $e; }
 }
 
@@ -154,7 +155,7 @@ try {
 ?>	
 <h1>Vakantie geboekt</h1>
 <p>Uw vakantie is geboekt, een overzicht van uw vakanties kunt u <a href="index.php?page=myholidays">hier</a> vinden. </p>
-<p>Uw vakantie boek ID is '<?PHP $bookID ?>'</p>
+<p>Uw vakantie boek ID is '<?PHP echo $bookID ?>'</p>
 </div>
 <div class="clear"></div>
 
