@@ -180,8 +180,9 @@
 		</table>
 		<br/>
 		<?php } ?>
-		<b>Totaalprijs exc. toeslag</b> <?php echo $prijs; ?><br/>
-		<b>Totaalprijs inc. toeslag</b> <?php echo number_format($_SESSION['totalprice'], 2, ',', '.'); ?><br/>
+		<b>Totaalprijs exc. toeslag</b> &euro; <?php echo number_format($prijs, 2, ',', '.'); ?><br/>
+		<b>Totaalprijs inc. toeslag</b> &euro; <?php echo number_format($_SESSION['totalprice'], 2, ',', '.'); ?><br/><br/>
+		<a class="button" href="index.php?page=cancel">Cancel</a> <a class="button" href="index.php?page=boekVakantie">Boek</a>
 	</div>
 </div>
 <div class="clear"></div>
