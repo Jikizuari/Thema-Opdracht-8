@@ -22,10 +22,10 @@ if(isset($_SESSION['stap3']) && $_SESSION['stap3']) {
 	}
 	$client	= new SoapClient("http://iis.dkmedia.nl:85/WcfServiceLibrary1.Service1.svc?wsdl");
 	$req = new searchattraction();
-	$req->searchattractions->holiday_end_dateField		= $_SESSION['totDatum'];
-	$req->searchattractions->holiday_start_dateField		= $_SESSION['vanDatum'];
+	$req->searchattractions->holiday_end_dateField	= $_SESSION['totDatum'];
+	$req->searchattractions->holiday_start_dateField = $_SESSION['vanDatum'];
 	$req->searchattractions->placeField	= $_SESSION['bestemming'];
-	$req->searchattractions->reachField	= 50;
+	$req->searchattractions->reachField	= 10050;
 	try {
 		$result	= $client->searchAttraction($req);
 		if(isset($result->searchAttractionResult->attraction)) {
@@ -78,13 +78,13 @@ if(isset($_SESSION['stap3']) && $_SESSION['stap3']) {
 	</tr>
 	<tr>
 		<td>
-			<a class="button" href="index.php?page=boekVakantie&attr=<?PHP echo $attr->idField ?>">Kaarten kopen</a>
+			<a class="button" href="index.php?page=boekOverzicht&attr=<?PHP echo $attr->idField ?>">Kaarten kopen</a>
 		</td>
 	</tr>
 	<tr><td>&nbsp;&nbsp;</tr>
 <?PHP endforeach; ?>
 </table>
 <hr />
-<a class="button" href="index.php?page=cancel">Cancel</a> <a class="button" href="index.php?page=boekVakantie">Next</a>
+<a class="button" href="index.php?page=cancel">Cancel</a> <a class="button" href="index.php?page=boekOverzicht">Next</a>
 </div>
 <div class="clear"></div>

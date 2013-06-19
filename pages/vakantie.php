@@ -2,7 +2,7 @@
 <?PHP
 
 if(isset($_SESSION['stap5']) && $_SESSION['stap5'])
-	redirect("boekVakantie");
+	redirect("boekOverzicht");
 elseif(isset($_SESSION['stap4']) && $_SESSION['stap4'])
 	redirect("boekAttractie");
 elseif(isset($_SESSION['stap3']) && $_SESSION['stap3'])
