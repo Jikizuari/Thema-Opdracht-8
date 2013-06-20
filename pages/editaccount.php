@@ -95,7 +95,7 @@
 					<span>Is niet verplicht</span>
 				<input type="password" id="pass" name="pass" />
 
-			<button class="right button" type="submit" name="submit" >Opslaan</button>
+			<button class="right button" type="submit" name="submit" >Opslaan</button> <a class="right button" href="?page=myaccount">Terug</a>
 		</form>
 	</div>
 	<?PHP require_once("essentials/sidebar.php"); ?>

@@ -40,8 +40,8 @@
 					<span>Uw achternaam</span>
 				<input type="text" id="lname" name="lname" />
 
-				<label class="label">Adres</label>
-					<span>Uw adres</span>
+				<label class="label">Straat</label>
+					<span>Uw straatnaam</span>
 				<input type="text" id="street" name="street" />
 
 				<label class="label">Huisnummer</label>
