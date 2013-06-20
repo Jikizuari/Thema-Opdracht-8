@@ -35,7 +35,7 @@
 		<table>
 			<?PHP foreach ($hotels as $hotel): ?>
 			<tr>
-				<td><h3><?PHP echo $hotel->name ?></h3></td>
+				<td colspan="20"><h3><?PHP echo $hotel->name ?></h3></td>
 			</tr>
 			<tr>
 				<td valign="top" style="padding-top:19px" rowspan="3">
@@ -70,6 +70,7 @@
 			</tr>
 			<?PHP endforeach; ?>
 		</table>
+		<hr/>
 		<a class="right button" href="index.php?page=cancel">Annuleer</a>
 	</div>
 	<?php require_once('essentials/sidebar_boeken.php'); ?>

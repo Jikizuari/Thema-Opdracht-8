@@ -34,7 +34,7 @@
 					}
 				} else {
 					if($result->return->flightId == $_SESSION['vlucht_id'])
-							$vlucht = $result->return; 
+						$vlucht = $result->return; 
 				}
 			} catch(Exception $e) {
 				//echo '<div class="errormessage" id="notification">'.$e->detail->fault->message.'</div>';
@@ -58,7 +58,7 @@
 					}
 				} else {
 					if($result->rooms->room->id == $_SESSION['hotel_roomType'])
-							$room = $result->rooms->room;
+						$room = $result->rooms->room;
 				}
 			} catch(Exception $e) {
 				//echo '<div class="errormessage" id="notification">'.$e->detail->fault->message.'</div>';
@@ -70,6 +70,12 @@
 				$datetime2 = new DateTime($_SESSION['totDatum']);
 				$days = $datetime1->diff($datetime2);
 				return ($room->pricePerNight * ceil( (double)$_SESSION['aantalPersonen'] / (double)$room->numberOfPersons ) ) * $days->days;
+			}
+			function calculatePriceCar($auto) {
+				$datetime1 = new DateTime($_SESSION['vanDatum']);
+				$datetime2 = new DateTime($_SESSION['totDatum']);
+				$days = $datetime1->diff($datetime2);
+				return ($auto->Price * $days->days);
 			}
 
 			//get car
@@ -125,7 +131,7 @@
 						}
 					} else {
 						if($result->searchAttractionResult->attraction->idField == $_SESSION['attr_id'] )
-								$attr = $result->searchAttractionResult->attraction;
+							$attr = $result->searchAttractionResult->attraction;
 					}
 				}
 			} catch(Exception $e) {
@@ -159,30 +165,61 @@
 			<tr><td><span>Prijs</span> &euro; <?php echo number_format(($_SESSION['aantalPersonen']*89), 2, ',', '.') ?></td></tr>
 		</table>
 		<br/>
-		<table id="tableStyle">
-			<tr><td><span>Naam hotel</span> <?php echo $_SESSION['hotel_name'] ?></td></tr>
-			<tr><td><span>Woonplaats</span> <?php echo $_SESSION['hotel_city'] ?></td></tr>
-			<tr><td><span>Type kamer</span> <?php echo $room->name ?></td></tr>
-			<tr><td><span>Prijs</span> &euro; <?php echo number_format(calculatePrice($room), 2, ',', '.') ?></td></tr>
+		
+		<table>
+			<tr>
+				<td>
+					<table id="tableStyle">
+						<tr><td><span>Naam hotel</span> <?php echo $_SESSION['hotel_name'] ?></td></tr>
+						<tr><td><span>Woonplaats</span> <?php echo $_SESSION['hotel_city'] ?></td></tr>
+						<tr><td><span>Type kamer</span> <?php echo $room->name ?></td></tr>
+						<tr><td><span>Prijs</span> &euro; <?php echo number_format(calculatePrice($room), 2, ',', '.') ?></td></tr>
+					</table>
+				</td>
+				<td><img style="position:absolute; margin-top:-33px;" width="85" height="60" src="<?php echo $room->photos->photo->url; ?>" alt="" /></td>
+			</tr>
 		</table>
 		<br/>
 		<?php if(isset($_SESSION['auto_id'])) { ?>
-		<table id="tableStyle">
-			<tr><td><span>Huurauto</span> <?php echo $car->Name ?></td></tr>
-			<tr><td><span>Max. personen</span> <?php echo $car->NumP ?></td></tr>
-			<tr><td><span>Prijs</span> &euro; <?php echo number_format($car->Price, 2, ',', '.') ?></td></tr>
+		<table>
+			<tr>
+				<td>
+					<table id="tableStyle">
+						<tr><td><span>Huurauto</span> <?php echo $car->Name ?></td></tr>
+						<tr><td><span>Max. personen</span> <?php echo $car->NumP ?></td></tr>
+						<tr><td><span>Prijs</span> &euro; <?php echo number_format(calculatePriceCar($car), 2, ',', '.') ?></td></tr>
+					</table>
+				</td>
+
+				<td><img style="position:absolute; margin-top:-25px;" width="85" height="60" src="<?php echo $car->PhotoURL; ?>" alt="" /></td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td></td>
+			</tr>
 		</table>
 		<br/>
+
 		<?php } if(isset($_SESSION['attr_id'])) { ?>
-		<table id="tableStyle">
-			<tr><td><span>Naam attractie</span> <?php echo $attr->nameField ?></td></tr>
-			<tr><td><span>Woonplaats</span> <?php echo $attr->cityField ?></td></tr>
-			<tr><td><span>Prijs</span> &euro; <?php echo number_format(($attr->priceField*$_SESSION['aantalPersonen']), 2, ',', '.') ?></td></tr>
+		<table>
+			<tr>
+				<td><table id="tableStyle">
+					<tr><td><span>Naam attractie</span> <?php echo $attr->nameField ?></td></tr>
+					<tr><td><span>Woonplaats</span> <?php echo $attr->cityField ?></td></tr>
+					<tr><td><span>Prijs</span> &euro; <?php echo number_format(($attr->priceField*$_SESSION['aantalPersonen']), 2, ',', '.') ?></td></tr>
+				</table></td>
+				<td><img style="position:absolute; margin-top:-25px;" width="85" height="60" src="<?php echo $attr->attractionphotosField->attractionphoto->urlField; ?>" alt="" /></td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td></td>
+			</tr>
 		</table>
 		<br/>
 		<?php } ?>
 		<b>Totaalprijs exc. toeslag</b> &euro; <?php echo number_format($prijs, 2, ',', '.'); ?><br/>
 		<b>Totaalprijs inc. toeslag</b> &euro; <?php echo number_format($_SESSION['totalprice'], 2, ',', '.'); ?><br/><br/>
+		<hr/>
 		<a class="button right" href="index.php?page=boekVakantie">Boek</a> <a class="button right" href="index.php?page=cancel">Annuleer</a>
 	</div>
 	<?php require_once('essentials/sidebar_boeken.php'); ?>

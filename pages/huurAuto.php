@@ -2,6 +2,13 @@
 	<div class="left" id="main-content-content">
 		<h1><strong>Auto</strong> huren</h1>
 		<?PHP
+		function calculatePrice($auto) {
+			$datetime1 = new DateTime($_SESSION['vanDatum']);
+			$datetime2 = new DateTime($_SESSION['totDatum']);
+			$days = $datetime1->diff($datetime2);
+			return ($auto->Price * $days->days);
+		}
+
 		$autos = array();
 
 		if(isset($_SESSION['stap2']) && $_SESSION['stap2'] && isset($_GET['roomType']) && isset($_GET['numberOfRooms'])) {
@@ -46,19 +53,20 @@
 				</td>
 			</tr>
 			<tr>
-				<td collspan="2"><h3><?PHP echo $auto->Name ?></h3></td>
+				<td colspan="10"><h3><?PHP echo $auto->Name ?></h3></td>
 			</tr>
 			<tr>
-				<td>Aantal personen</td>
-				<td><?PHP echo $auto->NumP  ?></td>
+				<td width="140">Aantal personen</td>
+				<td width="250"><?PHP echo $auto->NumP  ?></td>
 			</tr>
 			<tr>
 				<td>Prijs</td>
-				<td><?PHP echo $auto->Price  ?> Euro</td>
+				<td><?PHP echo calculatePrice($auto); //echo $auto->Price  ?> Euro</td>
 			</tr>
 			<tr>
+				<td></td>
 				<td>
-					<a class="button" href="index.php?page=boekAttractie&auto=<?PHP echo $auto->carId ?>">Huren</a>
+					<a class="right button" href="index.php?page=boekAttractie&auto=<?PHP echo $auto->carId ?>">Huren</a>
 				</td>
 			</tr>
 			<tr><td>&nbsp;&nbsp;</tr>

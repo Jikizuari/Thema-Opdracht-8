@@ -51,7 +51,10 @@
 					$flights[] = $result->return;
 				}
 			} catch(Exception $e) {
-				echo '<div class="errormessage" id="notification">'.$e->detail->fault->message.'</div>';
+				echo '<div class="errormessage" id="notification">'.$e->faultstring.'</div>';
+				if($e->faultstring == "could not extract ResultSet") {
+					echo '<a style="margin-top:-48px; margin-right:10px;" class="right button" href="?page=vakantieZoeken&vlucht=2">Doorgaan</a>';
+				}	
 			}
 		}
 		?>

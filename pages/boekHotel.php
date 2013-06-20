@@ -81,7 +81,7 @@
 			<td><h3><?PHP echo $room->name ?></h3></td>
 		</tr>
 		<tr>
-			<td rowspan="3">
+			<td style="padding-top:5px" valign="top" rowspan="3">
 				<?PHP
 				if(is_array($room->photos->photo)) {
 					$photoUrl = $room->photos->photo[0]->url;
@@ -93,16 +93,20 @@
 			</td>
 		</tr>
 		<tr>
-			<td><?PHP echo strlen($room->description) > 350 ? substr($room->description, 0, 350).'...' : $room->description  ?></td>
+			<td style="padding-left:10px;"><?PHP echo strlen($room->description) > 350 ? substr($room->description, 0, 350).'...' : $room->description  ?></td>
 		</tr>
 		<tr>
 			<td>
-				<a class="button" href="index.php?page=huurAuto&roomType=<?PHP echo $room->id ?>&numberOfRooms=<?PHP echo ceil( (double)$_SESSION['aantalPersonen'] / (double)$room->numberOfPersons ) ?>">Boeken</a>
-				Vanaf: <?PHP echo calculatePrice($room) ?> Euro.
+				<a class="right button" href="index.php?page=huurAuto&roomType=<?PHP echo $room->id ?>&numberOfRooms=<?PHP echo ceil( (double)$_SESSION['aantalPersonen'] / (double)$room->numberOfPersons ) ?>">Boeken</a>
+				<span style="position:absolute; margin-top:17px;margin-left:150px;">Vanaf: <?PHP echo calculatePrice($room) ?> Euro</span>
 			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
 		</tr>
 		<?PHP endforeach; ?>
 	</table>
+	<hr/>
 	<a class="right button" href="index.php?page=cancel">Annuleer</a>
 </div>
 	<?php require_once('essentials/sidebar_boeken.php'); ?>
