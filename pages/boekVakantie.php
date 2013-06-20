@@ -151,7 +151,6 @@
 				$bookID = $result->HolidayID;
 		} catch(Exception $e) {	echo $e; }    
 		?>	
-		<div class="right" id="main-content-right">
 			<div class="left" id="main-content-content">
 				<h1><strong>Vakantie</strong> geboekt</h1>
 				<p>Uw vakantie is geboekt, een overzicht van uw vakanties kunt u <a href="index.php?page=myholidays">hier</a> vinden. </p>
