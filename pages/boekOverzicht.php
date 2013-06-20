@@ -147,7 +147,7 @@
 		$prijs = ($_SESSION['aantalPersonen']*89);
 		$prijs = $prijs + calculatePrice($room);
 		if(isset($_SESSION['auto_id'])) {
-			$prijs = $prijs + $car->Price;
+			$prijs = $prijs + calculatePriceCar($car);
 		}
 		if(isset($_SESSION['attr_id'])) {
 			$prijs = $prijs + ($attr->priceField*$_SESSION['aantalPersonen']);
@@ -161,7 +161,7 @@
 		<table id="tableStyle">
 			<tr><td><span>Vertrekhaven</span> <?php echo $vlucht->departureAirport->name ?></td><td><span>Bestemming</span> <?php echo $vlucht->arrivalAirport->name ?></td></tr>
 			<tr><td><span>Vluchtcode</span> <?php echo $vlucht->flightCode ?></td><td><span>Vliegtuig</span> <?php echo $vlucht->airline ." - ". $vlucht->airplane->type ?></td></tr>
-			<tr><td><span>Vertrekdatum</span> <?php echo str_replace(array("T", "Z"), " ", $vlucht->departureDate) ?></td><td><span>Retourdatum</span> <?php echo str_replace(array("T", "Z"), " ", $vlucht->arrivalDate) ?></td></tr>
+			<tr><td><span>Vertrekdatum</span> <?php echo str_replace(array("T", "Z"), " ", $vlucht->departureDate) ?></td><td><span>Aankomst</span> <?php echo str_replace(array("T", "Z"), " ", $vlucht->arrivalDate) ?></td></tr>
 			<tr><td><span>Prijs</span> &euro; <?php echo number_format(($_SESSION['aantalPersonen']*89), 2, ',', '.') ?></td></tr>
 		</table>
 		<br/>
