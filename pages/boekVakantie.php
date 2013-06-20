@@ -156,9 +156,8 @@
 				<p>Uw vakantie is geboekt, een overzicht van uw vakanties kunt u <a href="index.php?page=myholidays">hier</a> vinden. </p>
 				<p>Uw vakantie boek ID is '<?PHP echo $bookID ?>'</p>
 			</div>
-			<div class="clear"></div>
 		</div>
-
+		<div class="clear"></div>
 	<?PHP
 
 	$user_id = $_SESSION['user_id'];
