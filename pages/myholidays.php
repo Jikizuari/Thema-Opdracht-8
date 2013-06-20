@@ -18,21 +18,25 @@
 				$counter = 1;
 				echo '<table id="tableStyle"><tr><td width="10px"><b>Nr</b></td><td><b>Bestemming</b></td><td><b>Vertrekdatum</b></td><td><b>Terugkomst</b></td><td><b>Totaalprijs</b></td><td><b>Info</b></td></tr>';
 				foreach ($output->Holiday as $holiday) {
+					foreach ($holiday->HolidayRecords as $record) {
+					 	if($record->BookingComponent == "HotelID"){
+					 		$hotelID = $record->BookingIDFromComponent;
+					 	}
+					}
 					$hotelClient	= new SoapClient("http://tomcat.dkmedia.nl/hotelservice/hotelservice?wsdl");
 					try {
-						$result = $hotelClient->BookInfo(array('bookId'=>$holiday->HolidayID));
-						var_dump($result);
-						$location = $result->hotel->city;
+					 	$result = $hotelClient->BookInfo(array('bookId'=>$hotelID));
+					 	$location = $result->hotel->city;
 					} catch(Exception $e) {
-						$location = "Onbekend";
+					 	$location = "Onbekend";
 					}
-
 					echo '<tr><td>#'.$counter.'</td><td>'.$location.'</td><td>'.str_replace("Z", "", $holiday->DepartureDate).'</td><td>'.str_replace("Z", "", $holiday->ReturnDate).'</td><td>&euro; '.number_format($holiday->TotalPrice, 2, ',', '.').'</td><td><a href="?page=holidayinfo&amp;id='.$holiday->HolidayID.'"><img src="img/icons/info.png" alt="i" /></a></td></tr>';
 					$counter++;
 				}
 				echo '</table>';
-		}
+			}
 		?>
+		<a class="right button" href="?page=myaccount">Terug</a>
 	</div>
 	<?PHP require_once("essentials/sidebar.php"); ?>
 </div>
