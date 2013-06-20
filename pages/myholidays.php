@@ -20,8 +20,9 @@
 				foreach ($output->Holiday as $holiday) {
 					$hotelClient	= new SoapClient("http://tomcat.dkmedia.nl/hotelservice/hotelservice?wsdl");
 					try {
-						$result = $client->GetAllBookedHolidays(array('UserID'=>$_SESSION['user_id']));
+						$result = $hotelClient->BookInfo(array('bookId'=>$holiday->HolidayID));
 						var_dump($result);
+						$location = $result->hotel->city;
 					} catch(Exception $e) {
 						$location = "Onbekend";
 					}
