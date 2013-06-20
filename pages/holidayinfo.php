@@ -60,14 +60,6 @@
 					} catch(Exception $e) {
 					}
 				}
-				if($hd_record->BookingComponent == "AttractionID"){
-					// $attractieClient	= new SoapClient("http://iis.dkmedia.nl:85/WcfServiceLibrary1.Service1.svc?wsdl");
-					// try {
-					//  	$result_attr = $attractieClient->getBookingAttraction(array('booking'=>array('attraction_booking_idField'=>$hd_record->BookingIDFromComponent)));
-					// } catch(Exception $e) {
-					// }
-					// echo $result_attr;
-				}
 			}
 			if($result_hotel != "") {
 		?>
