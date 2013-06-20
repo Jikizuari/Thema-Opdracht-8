@@ -1,6 +1,6 @@
 <div class="right" id="main-content-right">
 	<div class="left" id="main-content-content">
-		<h1><strong>Cancel</strong></h1>
+		<h1><strong>Bezig</strong>  met annuleren...</h1>
 		<?php
 
 			$user_id = $_SESSION['user_id'];
@@ -14,8 +14,8 @@
 			$_SESSION['user_name'] = $user_name;
 			$_SESSION['user_lastname'] = $user_lastname;
 			
+			redirect();
 		?>
-		<meta http-equiv="refresh" content="0; URL=?page=index">
 	</div>
 	<?PHP require_once("essentials/sidebar.php"); ?>
 </div>
